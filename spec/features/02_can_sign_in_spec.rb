@@ -1,6 +1,6 @@
-require "rails_helper"
+require 'rails_helper'
 
-feature "can sign in with an existing account", :devise do
+feature 'can sign in with an existing account', :devise do
   scenario 'signs in with an account' do
     visit '/users/sign_in'
     user = FactoryGirl.create(:user)
