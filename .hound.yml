@@ -276,3 +276,6 @@ Style/UnneededPercentQ:
 
 Metrics/AbcSize:
   Enabled: false
+
+ruby:
+  ignore_file: .hound_ignore
