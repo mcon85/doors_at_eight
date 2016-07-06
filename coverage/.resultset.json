@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/hread/Dropbox/Launch Academy/doors_at_eight/app/models/user.rb": [
+      "/Users/Pokrovskiy/challenges/doors_at_eight/app/models/user.rb": [
         1,
         null,
         null,
@@ -9,18 +9,42 @@
         null,
         null
       ],
-      "/Users/hread/Dropbox/Launch Academy/doors_at_eight/app/helpers/application_helper.rb": [
+      "/Users/Pokrovskiy/challenges/doors_at_eight/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/Users/hread/Dropbox/Launch Academy/doors_at_eight/app/controllers/application_controller.rb": [
+      "/Users/Pokrovskiy/challenges/doors_at_eight/app/models/review.rb": [
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null
+      ],
+      "/Users/Pokrovskiy/challenges/doors_at_eight/app/models/venue.rb": [
+        1,
+        1,
+        7,
+        5,
+        null,
+        2,
+        null,
+        null,
+        null
+      ],
+      "/Users/Pokrovskiy/challenges/doors_at_eight/app/controllers/application_controller.rb": [
         1,
         null,
         null,
         1,
         null
       ],
-      "/Users/hread/Dropbox/Launch Academy/doors_at_eight/app/controllers/users_controller.rb": [
+      "/Users/Pokrovskiy/challenges/doors_at_eight/app/controllers/users_controller.rb": [
         1,
         1,
         null,
@@ -29,18 +53,18 @@
         null,
         null
       ],
-      "/Users/hread/Dropbox/Launch Academy/doors_at_eight/app/models/venue.rb": [
-        1,
-        null
-      ],
-      "/Users/hread/Dropbox/Launch Academy/doors_at_eight/app/controllers/venues_controller.rb": [
+      "/Users/Pokrovskiy/challenges/doors_at_eight/app/controllers/venues_controller.rb": [
         1,
         1,
+        2,
+        null,
+        null,
         1,
+        4,
         null,
         null
       ]
     },
-    "timestamp": 1467818249
+    "timestamp": 1467830178
   }
 }
