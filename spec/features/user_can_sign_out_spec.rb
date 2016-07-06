@@ -3,7 +3,9 @@ require 'rails_helper'
 feature 'can sign out of an account', :devise do
   scenario 'can sign out' do
     user = FactoryGirl.create(:user)
-    visit '/users/sign_in'
+    visit root_path
+
+    click_link 'Sign In'
 
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password
@@ -12,7 +14,7 @@ feature 'can sign out of an account', :devise do
 
     expect(page).to have_content I18n.t 'devise.sessions.signed_in'
 
-    click_link 'Sign out'
+    click_link 'Sign Out'
 
     expect(page).to have_content I18n.t 'devise.sessions.signed_out'
   end
