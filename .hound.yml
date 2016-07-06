@@ -278,4 +278,4 @@ Metrics/AbcSize:
   Enabled: false
 
 ruby:
-  config_file: config/rubocop.yml
+  ignore_file: .hound_ignore
