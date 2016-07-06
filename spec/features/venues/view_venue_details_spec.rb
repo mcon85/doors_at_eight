@@ -21,4 +21,20 @@ feature 'View details of the venue' do
     expect(page).to have_content(venue.address)
     expect(page).to have_content(venue.capacity)
   end
+
+  scenario 'If T accessible, user should see message: T is nearby' do
+    venue = FactoryGirl.create(:venue, t_accessible: true)
+
+    visit venue_path(venue)
+
+    expect(page).to have_content(venue.display_t_accessible)
+  end
+
+  scenario 'If T not accessible, user should not see message: T is nearby' do
+    venue = FactoryGirl.create(:venue, t_accessible: false)
+
+    visit venue_path(venue)
+
+    expect(page).not_to have_content('T is nearby')
+  end
 end
