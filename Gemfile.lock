@@ -201,10 +201,7 @@ PLATFORMS
 
 DEPENDENCIES
   capybara
-<<<<<<< HEAD
-=======
   coveralls
->>>>>>> master
   devise
   factory_girl_rails
   jquery-rails
