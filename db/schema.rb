@@ -45,4 +45,3 @@ ActiveRecord::Schema.define(version: 20160705192559) do
     t.string  "address",                      null: false
     t.boolean "t_accessible", default: false
   end
-end
