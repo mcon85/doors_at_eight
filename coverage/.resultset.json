@@ -25,7 +25,7 @@
         1,
         null,
         1,
-        2,
+        4,
         null,
         null
       ],
@@ -36,11 +36,15 @@
       "/Users/hread/Dropbox/Launch Academy/doors_at_eight/app/controllers/venues_controller.rb": [
         1,
         1,
+        2,
+        null,
+        null,
         1,
+        2,
         null,
         null
       ]
     },
-    "timestamp": 1467818249
+    "timestamp": 1467832211
   }
 }
