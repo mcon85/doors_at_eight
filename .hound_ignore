@@ -1,3 +1,4 @@
 /db/schema.rb
 /config/initializers/devise.rb
 /db/migrate/20160705185332_devise_create_users.rb
+/db/migrate/20160706183145_add_role_to_users.rb
