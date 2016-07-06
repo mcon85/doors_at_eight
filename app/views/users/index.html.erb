@@ -1,1 +1,6 @@
 <h1>I'm a page</h1>
+<% if user_signed_in? %>
+  <li>
+    <%= link_to('Sign out', destroy_user_session_path, :method => :delete) %>
+  </li>
+<% end %>
