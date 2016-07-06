@@ -9,9 +9,11 @@ feature 'View details of the venue' do
     click_link(venue.name)
 
     expect(page).to have_content(venue.name)
+    expect(page).to have_content(venue.address)
+    expect(page).to have_content(venue.capacity)
   end
 
-  scenario 'When user vists page should see venue details' do
+  scenario 'When user visits venue show page should see venue details' do
     visit venue_path(venue)
 
     expect(page).to have_content(venue.name)
