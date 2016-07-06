@@ -2,6 +2,7 @@ require 'rails_helper'
 
 feature 'View details of the venue' do
   let!(:venue) { FactoryGirl.create(:venue) }
+  let(:t_is_accessible_string) { 'T is nearby' }
 
   scenario 'When a user clicks on the venue name see venue details.' do
     visit venues_path
@@ -27,7 +28,7 @@ feature 'View details of the venue' do
 
     visit venue_path(venue)
 
-    expect(page).to have_content(venue.display_t_accessible)
+    expect(page).to have_content(t_is_accessible_string)
   end
 
   scenario 'If T not accessible, user should not see message: T is nearby' do
@@ -35,6 +36,6 @@ feature 'View details of the venue' do
 
     visit venue_path(venue)
 
-    expect(page).not_to have_content('T is nearby')
+    expect(page).not_to have_content(t_is_accessible_string)
   end
 end
