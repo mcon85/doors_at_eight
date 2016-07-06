@@ -1,0 +1,7 @@
+<div class="venue-details">
+  <h2>Venue Details</h2>
+  <h1><%= @venue.name %></h1>
+  <%= link_to @venue.website, @venue.website, class: "website", target: "_blank" %>
+  <p class="venue-address"><%= @venue.address %></p>
+  <p class="venue-capacity">Capacity: <%= @venue.capacity %></p>
+</div>
