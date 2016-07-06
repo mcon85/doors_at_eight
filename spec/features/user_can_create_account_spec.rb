@@ -13,7 +13,7 @@ feature 'User can create new account' do
     fill_in 'Password', with: 'abc12345'
     fill_in 'Password confirmation', with: 'abc12345'
     click_button 'Sign up'
-    
+
     expect(page).to have_content I18n.t 'devise.registrations.signed_up'
   end
 end
