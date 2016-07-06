@@ -14,6 +14,13 @@ RSpec.describe User, type: :model do
   end
 end
 
+RSpec.describe 'Confirm username' do
+  it 'should have a username' do
+    user = FactoryGirl.create(:user)
+    expect(user.username).to eq('Factorial')
+  end
+end
+
 RSpec.describe 'Confirm admin role' do
   it 'is not an admin if the role is not admin' do
     user = FactoryGirl.create(:user)
