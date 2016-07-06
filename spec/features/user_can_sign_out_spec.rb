@@ -1,9 +1,5 @@
 require 'rails_helper'
 
-class PostsTests < ActionDispatch::IntegrationTest
-  include Devise::Test::IntegrationHelpers
-end
-
 feature 'can sign out of an account', :devise do
   scenario 'can sign out' do
     user = FactoryGirl.create(:user)
