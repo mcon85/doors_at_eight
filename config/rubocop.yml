@@ -1,0 +1,19 @@
+inherit_from:
+  - vendor/hound/config/style_guides/ruby.yml
+  - ../.rubocop_todo.yml
+
+AllCops:
+  Exclude:
+    - db/schema.rb
+    - Gemfile
+    - Rakefile
+
+AllCops:
+  RunRailsCops: true
+
+Style/StringLiterals:
+  Enabled: false
+
+Style/BlockComments:
+  Exclude:
+    - 'spec/spec_helper.rb'

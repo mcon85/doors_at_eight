@@ -278,4 +278,4 @@ Metrics/AbcSize:
   Enabled: false
 
 ruby:
-  ignore_file: schema.rb
+  config_file: config/rubocop.yml

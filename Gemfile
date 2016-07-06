@@ -17,6 +17,7 @@ group :development, :test do
   gem 'shoulda'
   gem 'valid_attribute'
   gem 'shoulda-matchers', require: false
+  gem 'rubocop', '0.39.0'
 end
 
 group :test do
