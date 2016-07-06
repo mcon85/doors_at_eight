@@ -13,6 +13,7 @@ feature 'can sign out of an account', :devise do
     click_button 'Log in'
     expect(page).to have_content I18n.t 'devise.sessions.signed_in'
     click_link 'Sign out'
+    save_and_open_page
     expect(page).to have_content I18n.t 'devise.sessions.signed_out'
   end
 end
