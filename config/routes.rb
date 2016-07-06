@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :venues, only: [:index]
 
   devise_for :users
   root 'users#index'
