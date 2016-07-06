@@ -3,7 +3,7 @@ class Venue < ActiveRecord::Base
     if t_accessible
       'T is nearby'
     else
-      ''
+      'No nearby T station'
     end
   end
 end

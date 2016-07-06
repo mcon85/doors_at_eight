@@ -7,15 +7,15 @@ describe Venue, type: :model do
 
       text = venue.display_t_accessible
 
-      expected_text = 'T is nearby'
-      expect(text).to eq(expected_text)
+      expect(text).to eq('T is nearby')
     end
+
     it 'when t_accessible is false do not display anything .' do
       venue = FactoryGirl.create(:venue, t_accessible: false)
 
       text = venue.display_t_accessible
 
-      expect(text).to eq('')
+      expect(text).to eq('No nearby T station')
     end
   end
 end
