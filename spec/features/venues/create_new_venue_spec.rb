@@ -6,7 +6,7 @@ feature "Create a venue" do
 
   scenario "User fills out form correctly" do
     visit new_venue_path
-    save_and_open_page
+    
     fill_in('Name', with: venue['name'])
     fill_in('Capacity',with: venue['capacity'])
     fill_in('Website',with: venue['website'])
