@@ -1,0 +1,25 @@
+<h1>New Venue</h1>
+
+<%= form_for @venue do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :capacity %>
+  <%= f.number_field :capacity %>
+
+  <%= f.label :website %>
+  <%= f.url_field :website %>
+
+  <%= f.label :address %>
+  <%= f.text_field :address %>
+
+  <%= f.radio_button :t_accessible, "t_accessible", value: true %>
+  <%= f.label :t_accessible %>
+
+  <%= f.radio_button :t_accessible, "t_not_accessible",
+                     value: false,
+                     checked: true %>
+  <%= f.label :t_not_accessible %>
+
+  <%= f.submit 'Create Venue' %>             
+<% end %>
