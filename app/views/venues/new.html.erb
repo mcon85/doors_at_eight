@@ -1,26 +1,3 @@
 <h1>New Venue</h1>
 
-<%= form_for @venue do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-
-  <%= f.label :capacity %>
-  <%= f.number_field :capacity %>
-
-  <%= f.label :website %>
-  <%= f.url_field :website %>
-
-  <%= f.label :address %>
-  <%= f.text_field :address %>
-
-  <%= f.radio_button :t_accessible, true,
-                     id: 't_accessible' %>
-  <%= f.label :t_accessible %>
-
-  <%= f.radio_button :t_accessible, false,
-                     id: 't_not_accessible',
-                     checked: true %>
-  <%= f.label :t_not_accessible %>
-
-  <%= f.submit 'Create Venue' %>
-<% end %>
+<%= render 'venues/form' %>
