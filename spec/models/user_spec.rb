@@ -22,12 +22,12 @@ RSpec.describe 'Confirm username' do
 end
 
 RSpec.describe 'Confirm admin role' do
-  it 'is not an admin if the role is not admin' do
+  it 'admin? returns false if user is not an admin' do
     user = FactoryGirl.create(:user)
     expect(user.admin?).to eq(false)
   end
 
-  it 'is an admin if the role is admin' do
+  it 'admin? returns true if user is an admin' do
     user = FactoryGirl.create(:user, role: 'admin')
     expect(user.admin?).to eq(true)
   end
