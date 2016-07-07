@@ -1,4 +1,5 @@
 # encoding: utf-8
+# This class is responsible for uploading avatars
 class AvatarUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
