@@ -1,6 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe User, type: :model do
+describe User, type: :model do
+  let(:username) { 'Factorial' }
+  let(:user) { FactoryGirl.create(:user, username: username) }
+
   it { should have_valid(:email).when('user@example.com', 'foo@bar.net') }
   it { should_not have_valid(:email).when(nil, '', 'aldkjfad', '@com', '.abc') }
 
@@ -12,14 +15,13 @@ RSpec.describe User, type: :model do
     expect(user).to_not be_valid
     expect(user.errors[:password_confirmation]).to_not be_blank
   end
-end
 
-RSpec.describe 'Confirm username' do
-  it 'should have a username' do
-    user = FactoryGirl.create(:user)
-    expect(user.username).to eq('Factorial')
+  describe 'Confirm username' do
+    it 'should have a username' do
+      expect(user.username).to eq(username)
+    end
   end
-end
+
 
 RSpec.describe 'Confirm admin role' do
   it 'admin? returns false if user is not an admin' do
