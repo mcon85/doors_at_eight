@@ -9,7 +9,8 @@ feature 'avatar' do
     fill_in 'Email', with: 'doorsat8@mailinator.com'
     fill_in 'Password', with: 'thispasswordisawful'
     fill_in 'Password confirmation', with: 'thispasswordisawful'
-    attach_file :user_avatar, "#{Rails.root}/spec/support/images/sample_avatar.jpg"
+    attach_file :user_avatar,
+    "#{Rails.root}/spec/support/images/sample_avatar.jpg"
     click_button 'Sign up'
 
     expect(page).to have_content I18n.t 'devise.registrations.signed_up'
