@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   root 'venues#index'
-  
+
   resources :homepage, only: [:index]
   resources :venues, only: [:index, :show, :new, :create]
   # The priority is based upon order of creation: first created -> highest priority.
