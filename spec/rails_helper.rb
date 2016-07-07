@@ -73,5 +73,5 @@ RSpec.configure do |config|
 end
 
 RSpec.configure do |config|
- config.include AuthenticationHelper
+  config.include AuthenticationHelper
 end
