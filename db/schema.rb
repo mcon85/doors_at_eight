@@ -16,6 +16,16 @@ ActiveRecord::Schema.define(version: 20160706183145) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "reviews", force: :cascade do |t|
+    t.integer "rating"
+    t.text    "body",     null: false
+    t.integer "user_id"
+    t.integer "venue_id"
+  end
+
+  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id", using: :btree
+  add_index "reviews", ["venue_id"], name: "index_reviews_on_venue_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",       null: false
     t.string   "encrypted_password",     default: "",       null: false
