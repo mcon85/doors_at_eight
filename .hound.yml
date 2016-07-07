@@ -1,7 +1,8 @@
 AllCops:
   Exclude:
     - db/schema.rb
-  #DisplayCopNames: true
+  Documentation:
+    Enabled: false
 
 AccessorMethodName:
   Enabled: false
@@ -62,9 +63,6 @@ Delegate:
   Enabled: false
 
 DeprecatedHashMethods:
-  Enabled: false
-
-Documentation:
   Enabled: false
 
 DotPosition:
