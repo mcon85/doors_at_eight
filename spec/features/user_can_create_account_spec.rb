@@ -11,6 +11,7 @@ feature 'User can create new account' do
 
     click_link 'Sign Up'
     fill_in 'Email', with: 'doorsat8@mailinator.com'
+    fill_in 'Username', with: 'testmctest'
     fill_in 'Password', with: 'abc12345'
     fill_in 'Password confirmation', with: 'abc12345'
     click_button 'Sign up'
