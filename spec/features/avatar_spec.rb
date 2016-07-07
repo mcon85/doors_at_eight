@@ -14,6 +14,5 @@ feature 'avatar' do
 
     expect(page).to have_content I18n.t 'devise.registrations.signed_up'
     expect(page).to have_css("img[src*='sample_avatar.jpg']")
-    save_and_open_page
   end
 end
