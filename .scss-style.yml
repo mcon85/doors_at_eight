@@ -1,3 +1,6 @@
 exclude:
   - "app/assets/stylesheets/_settings.scss"
   - "app/assets/stylesheets/foundation_and_overrides.scss"
+
+Comment:
+  enabled: false
