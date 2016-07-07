@@ -1,2 +1,15 @@
 // @import "*";
+nav{
+  display: block;
+  width: 100%
+}
 
+.avatar {
+  display: inline-block;
+}
+
+.avatar img{
+  border-radius: 30px;
+  max-width: 30px;
+  max-height: 30px;
+}
