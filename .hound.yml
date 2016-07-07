@@ -279,3 +279,6 @@ Metrics/AbcSize:
 
 ruby:
   ignore_file: .hound_ignore
+
+scss:
+  config_file: .scss-style.yml

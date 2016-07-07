@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>DoorsAtEight</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
+<head
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= content_for?(:title) ? yield(:title) : "DoorsAtEight" %></title>
+  <%= stylesheet_link_tag    'application' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
@@ -20,7 +22,12 @@
   </nav>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
-<%= yield %>
+
+  <div class="row">
+    <div class="columns">
+      <%= yield %>
+    </div>
+  </div>
 
 </body>
 </html>
