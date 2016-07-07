@@ -21,16 +21,15 @@ describe User, type: :model do
       expect(user.username).to eq(username)
     end
   end
-end
 
-RSpec.describe 'Confirm admin role' do
-  it 'admin? returns false if user is not an admin' do
-    user = FactoryGirl.create(:user)
-    expect(user.admin?).to eq(false)
-  end
+  describe 'Confirm admin role' do
+    it 'admin? returns false if user is not an admin' do
+      expect(user.admin?).to eq(false)
+    end
 
-  it 'admin? returns true if user is an admin' do
-    user = FactoryGirl.create(:user, role: 'admin')
-    expect(user.admin?).to eq(true)
+    it 'admin? returns true if user is an admin' do
+      user = FactoryGirl.create(:user, role: 'admin')
+      expect(user.admin?).to eq(true)
+    end
   end
 end
