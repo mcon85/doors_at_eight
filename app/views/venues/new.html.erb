@@ -13,13 +13,16 @@
   <%= f.label :address %>
   <%= f.text_field :address %>
 
-  <%= f.radio_button :t_accessible, "t_accessible", value: true %>
+  <%= f.radio_button :t_accessible, 't_accessible',
+                     id: 't_accessible',
+                     value: true %>
   <%= f.label :t_accessible %>
 
-  <%= f.radio_button :t_accessible, "t_not_accessible",
+  <%= f.radio_button :t_accessible, 't_not_accessible',
+                     id: 't_not_accessible',
                      value: false,
                      checked: true %>
   <%= f.label :t_not_accessible %>
 
-  <%= f.submit 'Create Venue' %>             
+  <%= f.submit 'Create Venue' %>
 <% end %>

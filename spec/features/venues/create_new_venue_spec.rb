@@ -11,7 +11,7 @@ feature "Create a venue" do
     fill_in('Capacity',with: venue['capacity'])
     fill_in('Website',with: venue['website'])
     fill_in('Address',with: venue['address'])
-    choose('T accessible')
+    choose('t_accessible')
 
     click_button('Create Venue')
 
