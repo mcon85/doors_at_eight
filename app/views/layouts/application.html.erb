@@ -8,12 +8,16 @@
 </head>
 <body>
   <nav>
-    <% if user_signed_in? %>
-      Currently signed in as: <%= link_to "#{current_user.email}", edit_user_registration_path(@user) %> |
-      <%= link_to 'Sign Out', destroy_user_session_path, :method => 'delete' %>
-    <% else %>
-      <%= link_to 'Sign Up', new_user_registration_path %> | <%= link_to 'Sign In', new_user_session_path %>
-    <% end %>
+    <%= image_tag "logos/doorsateight_nav.jpg" %>
+    <div style="float: right;">
+      <% if user_signed_in? %>
+        Currently signed in as: <%= link_to "#{current_user.email}", edit_user_registration_path(@user) %> |
+        <%= link_to 'Sign Out', destroy_user_session_path, :method => 'delete' %>
+      <% else %>
+        <%= link_to 'Sign Up', new_user_registration_path %> | <%= link_to 'Sign In', new_user_session_path %>
+      <% end %>
+    </div>
+
   </nav>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
