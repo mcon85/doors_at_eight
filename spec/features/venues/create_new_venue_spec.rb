@@ -6,7 +6,7 @@ feature "Create a venue" do
 
   scenario "User fills out form correctly" do
     visit new_venue_path
-    
+
     fill_in('Name', with: venue['name'])
     fill_in('Capacity',with: venue['capacity'])
     fill_in('Website',with: venue['website'])
@@ -20,5 +20,7 @@ feature "Create a venue" do
     expect(page).to have_content(venue['website'])
     expect(page).to have_content(venue['address'])
     expect(page).to have_content(t_is_accessible_string)
+
+    expect(page).to have_content('Venue saved successfully')
   end
 end
