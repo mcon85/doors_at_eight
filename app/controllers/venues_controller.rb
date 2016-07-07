@@ -14,20 +14,19 @@ class VenuesController < ApplicationController
   def create
     @venue = Venue.new(venue_params)
 
-    if(@venue.save)
+    if @venue.save
       flash[:success] = 'Venue saved successfully'
       redirect_to venue_path(@venue)
     end
   end
 
-
   private
 
   def venue_params
     params.require(:venue).permit(:name,
-                                   :address,
-                                   :website,
-                                   :capacity,
-                                   :t_accessible)
+                                  :address,
+                                  :website,
+                                  :capacity,
+                                  :t_accessible)
   end
 end

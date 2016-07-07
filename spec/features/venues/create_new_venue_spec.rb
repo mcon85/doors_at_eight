@@ -1,16 +1,16 @@
 require 'rails_helper'
 
-feature "Create a venue" do
+feature 'Create a venue' do
   let(:venue) { FactoryGirl.build(:venue) }
   let(:t_is_accessible_string) { 'T is nearby' }
 
-  scenario "User fills out form correctly" do
+  scenario 'User fills out form correctly' do
     visit new_venue_path
-    
+
     fill_in('Name', with: venue['name'])
-    fill_in('Capacity',with: venue['capacity'])
-    fill_in('Website',with: venue['website'])
-    fill_in('Address',with: venue['address'])
+    fill_in('Capacity', with: venue['capacity'])
+    fill_in('Website', with: venue['website'])
+    fill_in('Address', with: venue['address'])
     choose('t_accessible')
 
     click_button('Create Venue')
