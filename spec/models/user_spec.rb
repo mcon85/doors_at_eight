@@ -21,7 +21,7 @@ describe User, type: :model do
       expect(user.username).to eq(username)
     end
   end
-
+end
 
 RSpec.describe 'Confirm admin role' do
   it 'admin? returns false if user is not an admin' do
