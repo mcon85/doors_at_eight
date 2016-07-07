@@ -42,6 +42,6 @@ Rails.application.configure do
   # Default URL options for devise
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000}
 
-  #Serve static files in dev
+  # Serve static files in dev
   config.serve_static_assets = true
 end
