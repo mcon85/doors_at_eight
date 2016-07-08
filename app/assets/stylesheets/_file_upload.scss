@@ -1,0 +1,22 @@
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 20px;
+    margin-top: 7px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    width: 140px;
+
+}
+.fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+
+}
