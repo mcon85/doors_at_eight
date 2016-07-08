@@ -43,6 +43,4 @@ feature 'Create a new review' do
     expect(page).to have_content('Problem saving review.')
     expect(page).to have_content("Rating must be less than or equal to 5")
   end
-
-
 end
