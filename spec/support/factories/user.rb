@@ -3,7 +3,7 @@ FactoryGirl.define do
     sequence(:username){ |number| "User_#{number}" }
     sequence(:email){ |number| "Email_#{number}@mailinator.com" }
     password 'password'
-    avatar "#{Rails.root}/spec/support/images/sample_avatar.jpg"
+    avatar File.open("#{Rails.root}/spec/support/images/sample_avatar.jpg") 
     role 'member'
   end
 end
