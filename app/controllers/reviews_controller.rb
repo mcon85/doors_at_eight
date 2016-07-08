@@ -12,7 +12,8 @@ class ReviewsController < ApplicationController
       flash[:notice] = "Review added successfully"
       redirect_to venue_path(@venue)
     else
-      flash[:error] = "Problem saving review. #{@review.errors.full_messages.join(', ')}"
+      flash[:error] = "Problem saving review.
+        #{@review.errors.full_messages.join(', ')}"
       render :new
     end
   end
