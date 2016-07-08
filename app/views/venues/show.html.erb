@@ -6,6 +6,8 @@
   <p class="venue-capacity">Capacity: <%= @venue.capacity %></p>
   <p class="venue-t-accessible"><%= @venue.display_t_accessible %></p>
 
-  <%= link_to 'Add a review', new_venue_review_path(@venue) %>
+
+  <h2>Reviews</h2>
   <%= render 'venues/reviews' %>
+  <%= link_to 'Add a review', new_venue_review_path(@venue), class: "button" %>
 </div>

@@ -9,13 +9,15 @@ feature 'Create a new review' do
   end
 
   scenario 'User fills out review form correctly' do
-    fill_in('Rating', with: 5)
-    fill_in('Body', with: 'this place is the shit')
+    it 'shows success message and displays new review on venue page' do
+      fill_in('Rating', with: 5)
+      fill_in('Body', with: 'this place is the shit')
 
-    click_button('Create Rating')
+      click_button('Create Rating')
 
-    expect(page).to have_content('Review added successfully')
-    expect(page).to have_content('5')
-    expect(page).to have_content('this place is the shit')
+      expect(page).to have_content('Review added successfully')
+      expect(page).to have_content('5')
+      expect(page).to have_content('this place is the shit')
+    end
   end
 end
