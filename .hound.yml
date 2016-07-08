@@ -63,9 +63,6 @@ Delegate:
 DeprecatedHashMethods:
   Enabled: false
 
-Documentation:
-  Enabled: false
-
 DotPosition:
   EnforcedStyle: trailing
 

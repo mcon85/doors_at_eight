@@ -3,22 +3,39 @@
 <head
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title><%= content_for?(:title) ? yield(:title) : "DoorsAtEight" %></title>
+  <title><%= content_for?(:title) ? yield(:title) : "Doors At Eight" %></title>
   <%= stylesheet_link_tag    'application' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <nav>
-    <% if user_signed_in? %>
-      Currently signed in as: <%= link_to "#{current_user.username}", edit_user_registration_path(@user) %>  |
-      <div class="avatar">
-        <%= image_tag(current_user.avatar.url) %>
-      </div>
-      <%= link_to 'Sign Out', destroy_user_session_path, :method => 'delete' %>
-    <% else %>
-      <%= link_to 'Sign Up', new_user_registration_path %> | <%= link_to 'Sign In', new_user_session_path %>
-    <% end %>
+  <nav class="top-bar">
+    <div class="top-bar-left">
+      <ul class="menu">
+        <li><a href="/" class="logo"><%= image_tag "logos/doorsateight_nav.jpg" %></a></li>
+        <li><a href="/venues">All Venues</a></li>
+      </ul>
+    </div>
+    <div class="top-bar-right">
+      <ul class="menu">
+        <% if user_signed_in? %>
+          <li class="text"><%= image_tag current_user.avatar, class: 'avatar' %></li>
+          <li>
+            <%= link_to "#{current_user.username}", edit_user_registration_path(@user)%>
+          </li>
+          <li>
+            <%= link_to 'Sign Out', destroy_user_session_path, class: 'button', method: 'delete' %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to 'Sign Up', new_user_registration_path, class: 'button', method: 'get' %>
+          </li>
+          <li>
+            <%= link_to 'Sign In', new_user_session_path, class: 'button', method: 'get' %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
   </nav>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
