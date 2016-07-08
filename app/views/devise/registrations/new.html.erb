@@ -26,10 +26,7 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
-  <div class="field fileUpload button secondary">
-    <%= f.label :avatar, 'Upload Avatar' %>
-    <%= f.file_field :avatar, class: 'upload' %>
-  </div>
+  <%= render partial: 'avatar_upload', locals: { f: f } %>
 
   <div class="actions">
     <%= f.submit "Sign up", class: 'button' %>
