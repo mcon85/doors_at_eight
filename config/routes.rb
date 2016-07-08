@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  root 'venues#index'
+  root 'homepage#index'
 
   resources :homepage, only: [:index]
   resources :venues, only: [:index, :show, :new, :create]
