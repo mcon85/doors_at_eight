@@ -13,5 +13,5 @@
 /tmp
 /coverage/
 .env
+/public/uploads
 .DS_Store
-/public/uploads/
