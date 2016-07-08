@@ -1,7 +1,6 @@
 AllCops:
   Exclude:
     - db/schema.rb
-  #DisplayCopNames: true
 
 AccessorMethodName:
   Enabled: false
