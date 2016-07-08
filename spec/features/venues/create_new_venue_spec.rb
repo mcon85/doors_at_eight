@@ -30,7 +30,7 @@ feature 'Create a venue' do
     click_button('Create Venue')
 
     expect(page).to have_content('Problems saving venue')
-    expect(page).to have_content('Name can\'t be blank')
-    expect(page).to have_content('Address can\'t be blank')
+    expect(page).to have_content("Name can't be blank")
+    expect(page).to have_content("Address can't be blank")
   end
 end
