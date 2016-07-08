@@ -19,6 +19,10 @@ class VenuesController < ApplicationController
     if @venue.save
       flash[:success] = 'Venue saved successfully'
       redirect_to venue_path(@venue)
+    else
+      flash[:alert] = 'Problems saving venue'
+      @errors = @venue.errors.full_messages
+      render 'venues/new'
     end
   end
 

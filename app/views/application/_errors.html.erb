@@ -1,0 +1,8 @@
+<% if @errors  %>
+  <% @errors.each do |message| %>
+    <div data-alert class="alert-box alert round">
+      <%= message %>
+      <a href="#" class="close">&times;</a>
+    </div>
+ <% end %>
+<% end %>
