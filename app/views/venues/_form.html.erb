@@ -1,3 +1,4 @@
+<%= render 'application/errors' %>
 <%= form_for @venue do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
@@ -22,5 +23,3 @@
 
   <%= f.submit 'Create Venue' %>
 <% end %>
-
-<%= render 'application/errors' %>
