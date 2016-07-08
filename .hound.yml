@@ -1,8 +1,6 @@
 AllCops:
   Exclude:
     - db/schema.rb
-  Documentation:
-    Enabled: false
 
 AccessorMethodName:
   Enabled: false
