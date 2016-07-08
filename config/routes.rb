@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   root 'venues#index'
 
-  resources :venues, only: [:index, :show, :new, :create]
+  resources :venues, only: [:index, :show, :new, :create] do
+    resources :reviews
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

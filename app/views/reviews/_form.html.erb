@@ -1,0 +1,9 @@
+<%= form_for [:venue, @review] do |f| %>
+  <%= f.label :rating %>
+  <%= f.text_field :rating %>
+
+  <%= f.label :body %>
+  <%= f.text_area :body %>
+
+  <%= f.submit 'Create Rating' %>
+<% end %>

@@ -3,4 +3,6 @@
   <% @venues.each do |venue| %>
     <li><%= link_to venue.name, venue_path(venue) %></li>
   <% end %>
+
+  <%= link_to 'Add new venue', new_venue_path %>
 </ul>
