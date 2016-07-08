@@ -1,14 +1,14 @@
-// @import "*";
+/*
+*= require foundation_and_overrides
+*= require font-awesome
+*/
 nav {
   display: block;
   width: 100%;
 }
 
-.avatar {
-  display: inline-block;
-}
-
 .avatar img {
+  display: inline-block;
   border-radius: 30px;
   max-height: 30px;
   max-width: 30px;

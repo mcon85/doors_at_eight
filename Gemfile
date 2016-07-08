@@ -9,6 +9,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'devise'
 gem 'carrierwave'
+gem 'foundation-rails'
+gem 'font-awesome-rails'
 
 group :development, :test do
   gem 'capybara'
