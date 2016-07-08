@@ -2,14 +2,5 @@
 *= require foundation_and_overrides
 *= require font-awesome
 */
-nav {
-  display: block;
-  width: 100%;
-}
-
-.avatar {
-  border-radius: 30px;
-  display: inline-block;
-  max-height: 30px;
-  max-width: 30px;
-}
+@import 'nav';
+@import 'avatar';
