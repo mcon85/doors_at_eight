@@ -18,5 +18,4 @@ feature 'Create a new review' do
     expect(page).to have_content('5')
     expect(page).to have_content('this place is the shit')
   end
-
 end
