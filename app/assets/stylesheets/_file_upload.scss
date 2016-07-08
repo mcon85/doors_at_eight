@@ -1,21 +1,21 @@
 .file-upload {
-  position: relative;
-  overflow: hidden;
   margin-bottom: 20px;
   margin-top: 7px;
-  padding-top: 3px;
+  overflow: hidden;
   padding-bottom: 3px;
+  padding-top: 3px;
+  position: relative;
   width: 140px;
-}
 
-.file-upload .upload {
-  cursor: pointer;
-  filter: alpha(opacity = 0);
-  font-size: 20px;
-  margin: 0;
-  opacity: 0;
-  padding: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
+  .upload {
+    cursor: pointer;
+    filter: alpha(opacity = 0);
+    font-size: 20px;
+    margin: 0;
+    opacity: 0;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
 }
