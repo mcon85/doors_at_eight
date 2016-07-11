@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 feature 'user sees most recent reviews', js: true do
-
   scenario 'sees only 4 even when there are more than 4 reviews' do
     old = FactoryGirl.create_list(:review,
                                   6,

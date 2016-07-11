@@ -11,6 +11,6 @@ class Api::ReviewsController < ApiController
         created_at: review.created_at
       }
     end
-    render json: { reviews: review_map}, status: :ok
+    render json: { reviews: review_map }, status: :ok
   end
 end
