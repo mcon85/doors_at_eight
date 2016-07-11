@@ -9,19 +9,19 @@ feature 'Update a venue' do
   end
 
   scenario 'User edits form correctly' do
-    fill_in('Name', with: venue['name'])
-    fill_in('Capacity', with: venue['capacity'])
-    fill_in('Website', with: venue['website'])
-    fill_in('Address', with: venue['address'])
+    fill_in('Name', with: 'Updated Name!')
+    fill_in('Capacity', with: '354')
+    fill_in('Website', with: 'http://www.venueupdate.com')
+    fill_in('Address', with: '45 harrison blvd')
     choose('t_accessible')
 
     click_button('Save changes')
 
-    expect(page).to have_content(venue['name'])
-    expect(page).to have_content(venue['capacity'])
-    expect(page).to have_content(venue['website'])
-    expect(page).to have_content(venue['address'])
-    expect(page).to have_content(t_is_accessible_string)
+    expect(page).to have_content('Updated Name!')
+    expect(page).to have_content('354')
+    expect(page).to have_content('http://www.venueupdate.com')
+    expect(page).to have_content('45 harrison blvd')
+    expect(page).to have_content('t_is_accessible_string')
 
     expect(page).to have_content('Venue saved successfully')
   end
@@ -32,7 +32,7 @@ feature 'Update a venue' do
 
     click_button('Save changes')
 
-    expect(page).to have_content('Problems saving venue')
+    expect(page).to have_content('Problems updating venue')
     expect(page).to have_content("Name can't be blank")
     expect(page).to have_content("Address can't be blank")
   end
