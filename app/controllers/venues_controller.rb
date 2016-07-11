@@ -11,6 +11,10 @@ class VenuesController < ApplicationController
     @venue = Venue.new
   end
 
+  def edit
+    @venue = Venue.find(params[:id])
+  end
+
   def create
     @venue = Venue.new(venue_params)
 
@@ -23,6 +27,19 @@ class VenuesController < ApplicationController
       render 'venues/new'
     end
   end
+
+  def update
+    @venue = Venue.find(params[:id])
+
+    if @venue.update(venue_params)
+      flash[:success] = 'Venue saved successfully'
+      redirect_to venue_path(@venue)
+    else
+      flash[:alert] = 'Problems saving venue'
+      @errors = @venue.errors.full_messages
+      render 'venues/edit'
+    end
+end
 
   private
 
