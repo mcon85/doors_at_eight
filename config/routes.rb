@@ -9,7 +9,13 @@ Rails.application.routes.draw do
     resources :reviews, only: [:index]
   end
 
-  resources :venues, only: [:index, :show, :new, :edit, :create, :update] do
+  resources :venues, only: [:index,
+                            :show,
+                            :new,
+                            :edit,
+                            :create,
+                            :update,
+                            :destroy] do
     resources :reviews
   end
   # The priority is based upon order of creation: first created -> highest priority.
