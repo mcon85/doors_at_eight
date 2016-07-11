@@ -2,18 +2,20 @@ import React from 'react';
 
 const Review = props => {
 
+  let venuePath = `/venues/${props.venueId}`
+
   return (
-    <div className="review">
-      <div className="row">
+    <div className="row review">
+      <div className="review-top columns">
         <div className="name columns">
-          <h2>{props.venueName}</h2>
+          <h2><a href={venuePath}>{props.venueName}</a></h2>
         </div>
       </div>
-      <div className="row">
-        <div className="rating columns small-2">
+      <div className="review-bottom">
+        <div className="rating columns small-1">
           <h3>{props.rating}</h3>
         </div>
-        <div className="rating-body columns small-10">
+        <div className="rating-body columns small-11">
           <p>{props.body}</p>
         </div>
       </div>

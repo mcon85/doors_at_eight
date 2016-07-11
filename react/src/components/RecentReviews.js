@@ -30,8 +30,10 @@ class RecentReviews extends Component {
     return this.state.reviews.map((review)=> {
       return (
         <Review
+        key={review.id}
         rating={review.rating}
         body={review.body}
+        venueId={review.venue_id}
         venueName={review.venue_name}/>
       );
     });
