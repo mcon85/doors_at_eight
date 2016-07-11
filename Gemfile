@@ -25,6 +25,7 @@ end
 group :test do
   gem 'launchy', require: false
   gem 'coveralls', require: false
+  gem 'poltergeist'
 end
 
 group :production do
