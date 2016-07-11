@@ -39,7 +39,7 @@ class VenuesController < ApplicationController
       @errors = @venue.errors.full_messages
       render 'venues/edit'
     end
-end
+  end
 
   private
 
