@@ -1,3 +1,4 @@
+<%= render 'application/errors' %>
 <%= form_for @venue do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
@@ -18,9 +19,7 @@
   <%= f.radio_button :t_accessible, false,
                      id: 't_not_accessible',
                      checked: true %>
-  <%= f.label :t_not_accessible %>
+  <%= f.label :t_not_accessible %><br/>
 
-  <%= f.submit 'Save Venue' %>
+  <%= f.submit 'Save Venue', class: 'button' %>
 <% end %>
-
-<%= render 'application/errors' %>
