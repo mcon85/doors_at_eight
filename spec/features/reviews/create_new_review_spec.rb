@@ -3,14 +3,15 @@ require 'rails_helper'
 feature 'Create a new review' do
   let(:venue) { FactoryGirl.create(:venue) }
   let(:user) { FactoryGirl.create(:user) }
+  let(:review) { FactoryGirl.attributes_for(:review) }
 
   before do
     visit new_venue_review_path(venue.id)
   end
 
   scenario 'User sees success msg and updated page after filling out form' do
-    fill_in('Rating', with: 5)
-    fill_in('Body', with: 'this place is the shit')
+    fill_in('Rating', with: review[:rating])
+    fill_in('Body', with: review[:body])
 
     click_button('Create Rating')
 

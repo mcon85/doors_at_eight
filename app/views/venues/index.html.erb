@@ -1,8 +1,7 @@
 <h1>Venues</h1>
+<%= link_to 'Add New Venue', new_venue_path, class: "button" %>
 <ul>
   <% @venues.each do |venue| %>
     <li><%= link_to venue.name, venue_path(venue) %></li>
   <% end %>
-
-  <%= link_to 'Add new venue', new_venue_path, class: "button" %>
 </ul>
