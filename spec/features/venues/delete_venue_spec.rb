@@ -9,7 +9,6 @@ feature 'Update a venue' do
   end
 
   scenario 'User deletes venue' do
-
     click_button('Delete')
 
     expect(page).not_to have_content(venue['name'])
