@@ -15,7 +15,7 @@ feature 'Create a venue' do
     fill_in('Address', with: venue['address'])
     choose('t_accessible')
 
-    click_button('Create Venue')
+    click_button('Save Venue')
 
     expect(page).to have_content(venue['name'])
     expect(page).to have_content(venue['capacity'])
@@ -27,7 +27,7 @@ feature 'Create a venue' do
   end
 
   scenario 'User submits blank form' do
-    click_button('Create Venue')
+    click_button('Save Venue')
 
     expect(page).to have_content('Problems saving venue')
     expect(page).to have_content("Name can't be blank")

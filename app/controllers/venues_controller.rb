@@ -5,6 +5,7 @@ class VenuesController < ApplicationController
 
   def show
     @venue = Venue.find(params[:id])
+    @reviews = Review.where("venue_id = ?", params[:id])
   end
 
   def new
@@ -21,6 +22,23 @@ class VenuesController < ApplicationController
       flash[:alert] = 'Problems saving venue'
       @errors = @venue.errors.full_messages
       render 'venues/new'
+    end
+  end
+
+  def edit
+    @venue = Venue.find(params[:id])
+  end
+
+  def update
+    @venue = Venue.find(params[:id])
+
+    if @venue.update(venue_params)
+      flash[:success] = 'Venue saved successfully'
+      redirect_to venue_path(@venue)
+    else
+      flash[:alert] = 'Problems updating venue'
+      @errors = @venue.errors.full_messages
+      render 'venues/edit'
     end
   end
 

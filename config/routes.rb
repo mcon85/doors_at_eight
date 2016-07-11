@@ -4,9 +4,13 @@ Rails.application.routes.draw do
   root 'homepage#index'
 
   resources :homepage, only: [:index]
-  resources :venues, only: [:index, :show, :new, :create]
+
   namespace :api do
     resources :reviews, only: [:index]
+  end
+  
+  resources :venues, only: [:index, :show, :new, :edit, :create, :update] do
+    resources :reviews
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
