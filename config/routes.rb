@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root 'homepage#index'
 
   resources :homepage, only: [:index]
-  resources :venues, only: [:index, :show, :new, :create] do
+  resources :venues, only: [:index, :show, :new, :edit, :create, :update, :destroy] do
     resources :reviews
   end
 
