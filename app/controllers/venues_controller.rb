@@ -3,17 +3,14 @@ class VenuesController < ApplicationController
     @venues = Venue.all
   end
 
-
   def show
     @venue = Venue.find(params[:id])
     @reviews = Review.where("venue_id = ?", params[:id])
   end
 
-
   def new
     @venue = Venue.new
   end
-
 
   def create
     @venue = Venue.new(venue_params)
@@ -28,11 +25,9 @@ class VenuesController < ApplicationController
     end
   end
 
-
   def edit
     @venue = Venue.find(params[:id])
   end
-
 
   def update
     @venue = Venue.find(params[:id])

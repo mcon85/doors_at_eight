@@ -35,6 +35,5 @@ feature 'Update a venue' do
     expect(page).to have_content('Problems updating venue')
     expect(page).to have_content("Name can't be blank")
     expect(page).to have_content("Address can't be blank")
-
   end
 end
