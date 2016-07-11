@@ -1,4 +1,4 @@
-#review-carousel {
+.review-list {
   text-align: center;
 }
 
@@ -7,19 +7,19 @@
 }
 
 .review-top {
-  padding: 0px;
+  padding: 0;
 }
 
 .name {
+  background: rgba($header-blue, .8);
+  padding: 5px 10px;
   text-align: left;
-  background:rgba($header-blue,0.8);
-  padding: 5px 10px 5px 10px;
-}
 
-.name h2 {
-  font-size: 16px;
-  color: $yellow;
-  margin: 0px;
+  h2 {
+    color: $yellow;
+    font-size: 16px;
+    margin: 0;
+  }
 }
 
 .rating {
@@ -29,11 +29,11 @@
 }
 
 .rating-body {
-  text-align: left;
   padding: 10px 20px 10px 5px;
-}
+  text-align: left;
 
-.rating-body p {
-  font-size: 14px;
-  margin: 0px;
+  p {
+    font-size: 14px;
+    margin: 0;
+  }
 }
