@@ -1,7 +1,6 @@
 require 'rails_helper'
 
-feature 'Create a venue' do
-  feature 'Update a venue' do
+feature 'Update a venue' do
   let(:venue) { FactoryGirl.create(:venue) }
   let(:t_is_accessible_string) { 'T is nearby' }
 
@@ -15,6 +14,5 @@ feature 'Create a venue' do
 
     expect(page).not_to have_content(venue['name'])
     expect(page).to have_content('Venue deleted successfully')
-  end
   end
 end
