@@ -1,3 +1,39 @@
 #review-carousel {
   text-align: center;
 }
+
+.review {
+  margin-bottom: 30px;
+}
+
+.review-top {
+  padding: 0px;
+}
+
+.name {
+  text-align: left;
+  background:rgba($header-blue,0.8);
+  padding: 5px 10px 5px 10px;
+}
+
+.name h2 {
+  font-size: 16px;
+  color: $yellow;
+  margin: 0px;
+}
+
+.rating {
+  color: $yellow;
+  margin-top: 15px;
+  padding: 10px;
+}
+
+.rating-body {
+  text-align: left;
+  padding: 10px 20px 10px 5px;
+}
+
+.rating-body p {
+  font-size: 14px;
+  margin: 0px;
+}
