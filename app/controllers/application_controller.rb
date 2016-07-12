@@ -25,4 +25,8 @@ class ApplicationController < ActionController::Base
       user_params.permit(keys)
     end
   end
+
+  def check_ownership_of_item()
+
+  end
 end
