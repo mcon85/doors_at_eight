@@ -4,6 +4,11 @@ Rails.application.routes.draw do
   root 'homepage#index'
 
   resources :homepage, only: [:index]
+
+  resources :admin do
+    resources :users, except: [:create, :edit, :update, :new]
+  end
+
   resources :venues, only: [:index,
                             :show,
                             :new,
