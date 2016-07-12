@@ -1,7 +1,7 @@
 <div class="venue-details">
   <h1><%= @venue.name %></h1>
   <div>
-    <% if current_user && current_user.role == 'admin' %>
+    <% if current_user && current_user.admin? %>
       <ul class="button-group">
         <li><%= link_to 'Edit', edit_venue_path(@venue), class: "button" %></li>
         <li><%= button_to 'Delete', venue_path(@venue), method: 'delete',
