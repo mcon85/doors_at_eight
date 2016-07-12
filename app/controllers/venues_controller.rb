@@ -1,4 +1,6 @@
 class VenuesController < ApplicationController
+  before_filter :check_admin, only: [:edit, :update, :destroy]
+
   def index
     @venues = Venue.all
   end
@@ -27,15 +29,10 @@ class VenuesController < ApplicationController
 
   def edit
     @venue = Venue.find(params[:id])
-    if current_user.role == 'member'
-      flash[:alert] = 'You cannot edit a venue, you are not an admin or owner'
-      redirect_to venue_path(@venue)
-    end
   end
 
   def update
     @venue = Venue.find(params[:id])
-
     if @venue.update(venue_params)
       flash[:success] = 'Venue saved successfully'
       redirect_to venue_path(@venue)
@@ -48,18 +45,12 @@ class VenuesController < ApplicationController
 
   def destroy
     @venue = Venue.find(params[:id])
-
-    if current_user.role == 'member'
-      flash[:alert] = 'You cannot delete a venue, you are not an admin or owner'
-      redirect_to venue_path(@venue)
+    if @venue.destroy
+      flash[:success] = 'Venue deleted successfully'
+      redirect_to venues_path
     else
-      if @venue.destroy
-        flash[:success] = 'Venue deleted successfully'
-        redirect_to venues_path
-      else
-        flash[:alert] = 'Problems deleting venue'
-        redirect_to venue_path(@venue)
-      end
+      flash[:alert] = 'Problems deleting venue'
+      redirect_to venue_path(@venue)
     end
   end
 
