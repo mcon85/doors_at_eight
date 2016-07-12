@@ -38,7 +38,7 @@ feature 'can make edits to user account', :devise do
 
     expect(page).to have_content I18n.t 'devise.registrations.updated'
     click_link user.username
-    expect(page).to have_field('Email', :with => 'newemail@test.com')
+    expect(page).to have_field('Email', with:  'newemail@test.com')
   end
 
   scenario 'can not enter email that is already taken' do
