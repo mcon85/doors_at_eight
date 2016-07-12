@@ -20,6 +20,7 @@ group :development, :test do
   gem 'shoulda'
   gem 'valid_attribute'
   gem 'shoulda-matchers', require: false
+  gem 'dotenv-rails'
 end
 
 group :test do
@@ -28,6 +29,10 @@ group :test do
   gem 'poltergeist'
   gem 'capybara-webkit'
   gem 'database_cleaner'
+end
+
+group :production, :development do
+  gem 'fog'
 end
 
 group :production do
