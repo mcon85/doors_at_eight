@@ -1,4 +1,6 @@
 class ReviewsController < ApplicationController
+  before_action :check_owner, only: [:edit, :update, :destroy]
+
   def new
     @review = Review.new
     @venue = Venue.find(params[:venue_id])

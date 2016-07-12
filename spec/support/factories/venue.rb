@@ -5,5 +5,6 @@ FactoryGirl.define do
     website 'http://www.venue.com'
     address '23 harisson ave'
     t_accessible true
+    user
   end
 end

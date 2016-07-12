@@ -1,4 +1,6 @@
 class VenuesController < ApplicationController
+  before_action :check_owner, only: [:edit, :update, :destroy]
+
   def index
     @venues = Venue.all
   end

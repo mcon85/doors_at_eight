@@ -26,7 +26,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def check_ownership_of_item()
+  def check_owner
+    model = self.class.name.sub("Controller", "").singularize.constantize
 
+    item = model.find(params[:id])
+    if !current_user || !current_user.owner_of?(item)
+      flash[:alert] = 'You do not have permission to complete that action.'
+      redirect_to root_path
+    end
   end
 end
