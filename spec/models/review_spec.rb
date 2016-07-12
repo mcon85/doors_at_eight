@@ -7,4 +7,6 @@ describe Review, type: :model do
   it { should belong_to(:user) }
 
   it { should belong_to(:venue) }
+
+  it { should have_many(:votes).dependent(:destroy) }
 end
