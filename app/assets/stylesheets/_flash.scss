@@ -1,15 +1,15 @@
 .callout.success {
-  background-color: #312d48;
+  background-color: $callout-success-blue;
 }
 
 .callout.alert {
-  background-color: #c30025;
+  background-color: $callout-error-red;
 }
 
 .close-button {
-  color: #ffffff;
+  color: $white;
 }
 
 .close-button:hover {
-  color: #f3bd0c;
+  color: $yellow;
 }
