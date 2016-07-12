@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   has_many :votes, dependent: :destroy
 
   validates :email, presence: true
-  validates :username, presence: true
+  validates :username, presence: true, uniqueness: true
 
   def admin?
     role == 'admin'
