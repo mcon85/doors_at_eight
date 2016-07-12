@@ -15,3 +15,5 @@
 .env
 /public/uploads
 .DS_Store
+
+node_modules
