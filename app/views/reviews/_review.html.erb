@@ -8,8 +8,8 @@
       <div class="body columns small-9">
         <%= review.body %>
       </div>
-      <% if current_user %>
-        <%= button_to 'Edit', edit_venue_review_path(@venue, review), 
+      <% if current_user && current_user.owner_of?(review) %>
+        <%= button_to 'Edit', edit_venue_review_path(@venue, review),
                               class: 'button' %>
         <%= button_to 'Delete', review_path(review),
                                 method: 'delete',

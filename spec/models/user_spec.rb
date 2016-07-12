@@ -61,6 +61,7 @@ describe User, type: :model do
       item = Item.new('not the user id')
 
       expect(user.owner_of?(item)).to eq(false)
+    end
   end
 
   describe '#check_vote_status_of' do

@@ -1,10 +1,12 @@
 require 'rails_helper'
 
 feature 'Create a venue' do
+  let(:user) { FactoryGirl.create(:user) }
   let(:venue) { FactoryGirl.build(:venue) }
   let(:t_is_accessible_string) { 'T is nearby' }
 
   before do
+    login_user(user)
     visit new_venue_path
   end
 

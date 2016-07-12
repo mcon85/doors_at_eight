@@ -6,6 +6,7 @@ feature 'Create a new review' do
   let(:review) { FactoryGirl.build(:review, body: 'this place is the shit') }
 
   before do
+    login_user(user)
     visit new_venue_review_path(venue.id)
   end
 

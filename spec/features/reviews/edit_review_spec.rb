@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'Edit a review' do
   let(:venue) { FactoryGirl.create(:venue) }
   let(:user) { FactoryGirl.create(:user) }
-  let!(:review) { FactoryGirl.create(:review, venue: venue) }
+  let!(:review) { FactoryGirl.create(:review, venue: venue, user: user) }
 
   before do
     login_user(user)

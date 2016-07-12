@@ -5,9 +5,12 @@ feature 'Admin deletes a venue' do
   let(:admin) { FactoryGirl.create(:admin) }
   let(:t_is_accessible_string) { 'T is nearby' }
 
-  scenario 'Admin user deletes venue successfully' do
+  before do
+    login_user(admin)
     visit venue_path(venue)
+  end
 
+  scenario 'Admin user deletes venue successfully' do
     click_button('Delete')
 
     expect(page).not_to have_content(venue['name'])
