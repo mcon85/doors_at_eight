@@ -4,10 +4,12 @@ module VotesHelper
 
     status = user.check_vote_status_of(review)
 
-    if status == 'up'
-      class_string << ' green'
-    elsif status == 'down'
-      class_string << ' red'
+    if status == vote_status
+      if status == 'up'
+        class_string << ' green'
+      else
+        class_string << ' red'
+      end
     end
 
     class_string

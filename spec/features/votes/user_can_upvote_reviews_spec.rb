@@ -18,19 +18,16 @@ feature 'user can upvote a review', %{
 
   before do
     login_user user
+    visit venue_path(venue)
   end
 
   scenario 'user sees upvote button next to a review' do
-    visit venue_path(venue)
-
     within '.review' do
       expect(page).to have_css(".fa-chevron-up")
     end
   end
 
   scenario 'user clicks upvote button and records vote' do
-    visit venue_path(venue)
-
     find('.upvote-button').click
 
     expect(page).to have_content('Thanks for up-voting!')
@@ -40,8 +37,6 @@ feature 'user can upvote a review', %{
   end
 
   scenario 'user cancels vote by clicking upvote button again' do
-    visit venue_path(venue)
-
     find('.upvote-button').click
 
     find('.upvote-button').click
@@ -58,5 +53,26 @@ feature 'user can upvote a review', %{
     visit venue_path(venue)
 
     expect(page).not_to have_css('.upvote-button')
+  end
+
+  scenario 'upvote button is not red if user clicks downvote' do
+    find('.downvote-button').click
+
+    within('.upvote') do
+      expect(page).not_to have_css('.red')
+    end
+  end
+
+  scenario 'user clicks upvote after previously downvoting switches vote' do
+    find('.downvote-button').click
+    find('.upvote-button').click
+
+    expect(page).to have_content('Thanks for up-voting!')
+    within '.upvote' do
+      expect(page).to have_css('.green')
+    end
+    within '.downvote' do
+      expect(page).not_to have_css('.red')
+    end
   end
 end

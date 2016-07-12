@@ -3,17 +3,25 @@ class VotesController < ApplicationController
 
   def create
     @review = Review.find(params[:review_id])
+    vote = Vote.where(user: current_user, review: @review).first
 
-    if current_user.check_vote_status_of(@review)
-      Vote.where(user: current_user, review: @review).first.destroy
-      flash[:success] = 'Your vote was removed.'
+    success_message = "Thanks for #{params[:vote_type]}-voting!"
+
+    if vote
+      if vote.vote_type == params[:vote_type]
+        vote.destroy
+        flash[:success] = 'Your vote was removed.'
+      else
+        vote.update(vote_type: params[:vote_type])
+        flash[:success] = success_message
+      end
     else
       vote = Vote.new(user: current_user,
                       review: @review,
                       vote_type: params[:vote_type])
 
       if vote.save
-        flash[:success] = "Thanks for #{vote.vote_type}-voting!"
+        flash[:success] = success_message
       else
         flash[:alert] = 'There was a problem saving that upvote.'
       end
