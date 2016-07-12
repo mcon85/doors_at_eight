@@ -25,6 +25,35 @@ class VenuesController < ApplicationController
     end
   end
 
+  def edit
+    @venue = Venue.find(params[:id])
+  end
+
+  def update
+    @venue = Venue.find(params[:id])
+
+    if @venue.update(venue_params)
+      flash[:success] = 'Venue saved successfully'
+      redirect_to venue_path(@venue)
+    else
+      flash[:alert] = 'Problems updating venue'
+      @errors = @venue.errors.full_messages
+      render 'venues/edit'
+    end
+  end
+
+  def destroy
+    @venue = Venue.find(params[:id])
+
+    if @venue.destroy
+      flash[:success] = 'Venue deleted successfully'
+      redirect_to venues_path
+    else
+      flash[:alert] = 'Problems deleting venue'
+      redirect_to venue_path(@venue)
+    end
+  end
+
   private
 
   def venue_params
