@@ -18,9 +18,22 @@ feature 'user can upvote a review', %{
 
   scenario 'user sees upvote button next to a review' do
     visit venue_path(venue)
-    save_and_open_page
+
     within '.review' do
       expect(page).to have_css(".fa-chevron-up")
+    end
+  end
+
+  scenario 'user clicks upvote button and records vote' do
+    visit venue_path(venue)
+
+    within '.review' do
+      find('.fa-chevron-up').click
+    end
+
+    expect(page).to have_content('Thanks for upvoting!')
+    within '.upvote' do
+      expect(page).to have_css('.green')
     end
   end
 end
