@@ -1,4 +1,5 @@
 class VenuesController < ApplicationController
+  helper VotesHelper
   before_filter :check_admin, only: [:edit, :update, :destroy]
 
   def index

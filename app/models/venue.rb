@@ -1,5 +1,6 @@
 class Venue < ActiveRecord::Base
   has_many :reviews, dependent: :destroy
+  belongs_to :user
 
   validates :name, presence: true
   validates :capacity, allow_blank: true,

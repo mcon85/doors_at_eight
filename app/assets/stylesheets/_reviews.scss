@@ -1,0 +1,39 @@
+.review-list {
+  text-align: center;
+}
+
+.review {
+  margin-bottom: 30px;
+}
+
+.review-top {
+  padding: 0;
+}
+
+.name {
+  background: rgba($header-blue, .8);
+  padding: 5px 10px;
+  text-align: left;
+
+  h2 {
+    color: $yellow;
+    font-size: 16px;
+    margin: 0;
+  }
+}
+
+.rating {
+  color: $yellow;
+  margin-top: 15px;
+  padding: 10px;
+}
+
+.rating-body {
+  padding: 10px 20px 10px 5px;
+  text-align: left;
+
+  p {
+    font-size: 14px;
+    margin: 0;
+  }
+}
