@@ -20,11 +20,16 @@ group :development, :test do
   gem 'shoulda'
   gem 'valid_attribute'
   gem 'shoulda-matchers', require: false
+  gem 'dotenv-rails'
 end
 
 group :test do
   gem 'launchy', require: false
   gem 'coveralls', require: false
+end
+
+group :production, :development do
+  gem 'fog'
 end
 
 group :production do
