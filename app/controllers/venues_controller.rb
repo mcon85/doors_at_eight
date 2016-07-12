@@ -27,6 +27,10 @@ class VenuesController < ApplicationController
 
   def edit
     @venue = Venue.find(params[:id])
+    if current_user.role == 'member'
+      flash[:alert] = 'You cannot edit a venue, you are not an admin or owner'
+      redirect_to venue_path(@venue)
+    end
   end
 
   def update
@@ -46,7 +50,7 @@ class VenuesController < ApplicationController
     @venue = Venue.find(params[:id])
 
     if current_user.role == 'member'
-      flash[:alert] = 'You cannot delete a venue, you are not an administrator'
+      flash[:alert] = 'You cannot delete a venue, you are not an admin or owner'
       redirect_to venue_path(@venue)
     else
       if @venue.destroy
