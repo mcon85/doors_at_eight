@@ -5,5 +5,8 @@ FactoryGirl.define do
     password 'password'
     avatar File.open("#{Rails.root}/spec/support/images/sample_avatar.jpg")
     role 'member'
+    factory :admin do
+      role 'admin'
+    end
   end
 end

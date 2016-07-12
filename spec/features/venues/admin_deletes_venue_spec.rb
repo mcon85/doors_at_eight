@@ -1,14 +1,16 @@
 require 'rails_helper'
 
-feature 'Update a venue' do
+feature 'Delete a venue' do
   let(:venue) { FactoryGirl.create(:venue) }
+  let(:admin) { FactoryGirl.create(:admin) }
   let(:t_is_accessible_string) { 'T is nearby' }
 
   before do
+    login_user(admin)
     visit venue_path(venue)
   end
 
-  scenario 'User deletes venue' do
+  scenario 'Admin user deletes venue successfully' do
     click_button('Delete')
 
     expect(page).not_to have_content(venue['name'])

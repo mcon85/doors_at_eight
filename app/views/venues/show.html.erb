@@ -1,14 +1,23 @@
 <div class="venue-details">
   <h1><%= @venue.name %></h1>
-  <%= button_to 'Delete', venue_path(@venue), method: 'delete',
-                                              class: "alert button" %>
-  <%= link_to @venue.website, @venue.website, class: "website",
-                                              target: "_blank" %>
+  <div>
+    <% if current_user && current_user.admin? %>
+      <ul class="button-group">
+        <li><%= link_to 'Edit', edit_venue_path(@venue), class: "button" %></li>
+        <li><%= button_to 'Delete', venue_path(@venue), method: 'delete',
+                                                      class: "alert button" %>
+        </li>
+      </ul>
+    <% end %>
+  </div>
+  <br>
+  <p><%= link_to @venue.website, @venue.website, class: "website",
+                                              target: "_blank" %></p>
   <p class="venue-address"><%= @venue.address %></p>
   <p class="venue-capacity">Capacity: <%= @venue.capacity %></p>
   <p class="venue-t-accessible"><%= @venue.display_t_accessible %></p>
 
   <h2>Reviews</h2>
-  <%= render 'reviews/reviews' %>
   <%= link_to 'Add A Review', new_venue_review_path(@venue), class: "button" %>
+  <%= render 'reviews/reviews' %>
 </div>
