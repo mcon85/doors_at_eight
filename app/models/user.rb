@@ -17,10 +17,8 @@ class User < ActiveRecord::Base
 
   def check_vote_status_of(review)
     vote = Vote.where(user: self, review: review).first
-    if(vote)
+    if vote
       vote.vote_type
-    else
-      nil
     end
   end
 end

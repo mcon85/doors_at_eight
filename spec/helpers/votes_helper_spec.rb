@@ -18,7 +18,7 @@ describe VotesHelper do
     end
 
     it "should add 'green' to upvote if user upvoted" do
-      vote = FactoryGirl.create(:vote, user: user,
+      FactoryGirl.create(:vote, user: user,
                                        review: review,
                                        vote_type: 'up')
       actual_class_string = vote_button_class(user, review, 'up')
@@ -27,13 +27,12 @@ describe VotesHelper do
     end
 
     it "should add 'red' to downvote if a user downvoted" do
-      vote = FactoryGirl.create(:vote, user: user,
-                                       review: review,
-                                       vote_type: 'down')
+      FactoryGirl.create(:vote, user: user,
+                                review: review,
+                                vote_type: 'down')
       actual_class_string = vote_button_class(user, review, 'down')
 
       expect(actual_class_string).to eq('downvote-button red')
     end
   end
-
 end
