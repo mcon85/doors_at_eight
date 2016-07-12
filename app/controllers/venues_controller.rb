@@ -1,4 +1,6 @@
 class VenuesController < ApplicationController
+  helper VotesHelper
+
   def index
     @venues = Venue.all
   end

@@ -5,10 +5,20 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :reviews, dependent: :destroy
+  has_many :votes, dependent: :destroy
+
   validates :email, presence: true
   validates :username, presence: true, uniqueness: true
 
   def admin?
     role == 'admin'
+  end
+
+  def check_vote_status_of(review)
+    vote = Vote.where(user: self, review: review).first
+    if vote
+      vote.vote_type
+    end
   end
 end

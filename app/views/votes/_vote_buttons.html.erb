@@ -1,0 +1,22 @@
+<% if current_user %>
+  <div class="votes columns small-1">
+    <div class="upvote">
+      <%= form_tag review_votes_path(review) do  %>
+        <%= hidden_field_tag :vote_type, 'up' %>
+        <button type='submit'
+                class="<%= vote_button_class(current_user, review, 'up') %>" >
+          <i class='fa fa-chevron-up'></i>
+        </button>
+      <% end %>
+    </div>
+    <div class="downvote">
+      <%= form_tag review_votes_path(review) do  %>
+        <%= hidden_field_tag :vote_type, 'down' %>
+        <button type='submit'
+                class="<%= vote_button_class(current_user, review, 'down') %>" >
+          <i class='fa fa-chevron-down'></i>
+        </button>
+      <% end %>
+    </div>
+  </div>
+<% end %>
