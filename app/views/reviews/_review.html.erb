@@ -1,0 +1,20 @@
+<div class="review row">
+  <div class="columns small-12 medium-6 medium-centered">
+    <div class="row">
+      <div class="votes columns small-1">
+        <div class="upvote">
+          <%= form_tag('reviews/1/votes') do  %>
+            <%= hidden_field_tag :status, 'up' %>
+            <button type='submit'><i class='fa fa-chevron-up'></i></button>
+          <% end %>
+        </div>
+      </div>
+      <div class="rating columns small-2">
+        <%= review.rating %>
+      </div>
+      <div class="body columns small-9">
+        <%= review.body %>
+      </div>
+    </div>
+  </div>
+</div>

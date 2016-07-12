@@ -14,11 +14,11 @@ feature 'user can upvote a review', %{
 
   let(:user) { FactoryGirl.create(:user) }
   let(:venue) { FactoryGirl.create(:venue) }
-  let(:review) { FactoryGirl.create(:review, venue: venue) }
+  let!(:review) { FactoryGirl.create(:review, venue: venue) }
 
   scenario 'user sees upvote button next to a review' do
     visit venue_path(venue)
-
+    save_and_open_page
     within '.review' do
       expect(page).to have_css(".fa-chevron-up")
     end
