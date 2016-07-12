@@ -11,4 +11,8 @@ class User < ActiveRecord::Base
   def admin?
     role == 'admin'
   end
+
+  def owner_of?(item)
+    admin? || id == item.user_id
+  end
 end
