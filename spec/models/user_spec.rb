@@ -7,7 +7,6 @@ describe User, type: :model do
   it { should have_valid(:email).when('user@example.com', 'foo@bar.net') }
   it { should_not have_valid(:email).when(nil, '', 'aldkjfad', '@com', '.abc') }
 
-  it { should have_many(:venues).dependent(:destroy) }
   it { should have_many(:reviews).dependent(:destroy) }
   it { should have_many(:votes).dependent(:destroy) }
 

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root 'homepage#index'
 
   resources :homepage, only: [:index]
+
   resources :venues, only: [:index,
                             :show,
                             :new,
@@ -12,6 +13,10 @@ Rails.application.routes.draw do
                             :update,
                             :destroy] do
     resources :reviews
+  end
+
+  resources :reviews, only: [:show] do
+    resources :votes, only: [:create]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
