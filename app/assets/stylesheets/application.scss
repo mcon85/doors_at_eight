@@ -2,9 +2,10 @@
 *= require foundation_and_overrides
 *= require font-awesome
 */
+@import 'colors';
 @import 'nav';
 @import 'avatar';
 @import 'menu';
-@import 'colors';
 @import 'reviews';
 @import 'file_upload';
+@import 'flash';
