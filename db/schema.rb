@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160708193848) do
+ActiveRecord::Schema.define(version: 20160712200950) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,7 +54,10 @@ ActiveRecord::Schema.define(version: 20160708193848) do
     t.string  "website"
     t.string  "address",                      null: false
     t.boolean "t_accessible", default: false
+    t.integer "user_id"
   end
+
+  add_index "venues", ["user_id"], name: "index_venues_on_user_id", using: :btree
 
   create_table "votes", force: :cascade do |t|
     t.integer "user_id",   null: false
@@ -65,4 +68,5 @@ ActiveRecord::Schema.define(version: 20160708193848) do
   add_index "votes", ["review_id"], name: "index_votes_on_review_id", using: :btree
   add_index "votes", ["user_id"], name: "index_votes_on_user_id", using: :btree
 
+  add_foreign_key "venues", "users"
 end
