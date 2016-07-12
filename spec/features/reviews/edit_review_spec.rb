@@ -18,6 +18,10 @@ feature 'Edit a review' do
     within('.review-rating') do
       page.body.should have_content '3'
     end
+
     expect(page).to have_content('This review has been edited')
+
+    updated_review = Review.find(review.id)
+    expect(updated_review.body).to eq('This review has been edited')
   end
 end
