@@ -4,6 +4,8 @@ describe User, type: :model do
   let(:username) { 'Factorial' }
   let(:user) { FactoryGirl.create(:user, username: username) }
 
+  it { should have_many(:venues) }
+
   it { should have_valid(:email).when('user@example.com', 'foo@bar.net') }
   it { should_not have_valid(:email).when(nil, '', 'aldkjfad', '@com', '.abc') }
 
