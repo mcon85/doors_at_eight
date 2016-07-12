@@ -13,7 +13,7 @@ class VotesController < ApplicationController
                       vote_type: params[:vote_type])
 
       if vote.save
-        flash[:success] = 'Thanks for upvoting!'
+        flash[:success] = "Thanks for #{vote.vote_type}-voting!"
       else
         flash[:alert] = 'There was a problem saving that upvote.'
       end

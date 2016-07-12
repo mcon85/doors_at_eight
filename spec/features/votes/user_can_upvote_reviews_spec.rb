@@ -33,7 +33,7 @@ feature 'user can upvote a review', %{
 
     find('.upvote-button').click
 
-    expect(page).to have_content('Thanks for upvoting!')
+    expect(page).to have_content('Thanks for up-voting!')
     within '.upvote' do
       expect(page).to have_css('.green')
     end
