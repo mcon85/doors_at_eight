@@ -1,3 +1,5 @@
-<% @reviews.each do |review| %>
-  <%= render partial: 'reviews/review', object: review  %>
-<% end %>
+<div class="reviews">
+  <% @reviews.each do |review| %>
+    <%= render partial: 'reviews/review', object: review  %>
+  <% end %>
+</div>
