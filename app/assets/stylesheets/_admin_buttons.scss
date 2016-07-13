@@ -1,0 +1,10 @@
+ul.button-group {
+  display: inline-block;
+  margin-left: 0;
+}
+
+ul.button-group>li {
+  float: none;
+  display: inline-block;
+  margin-right: 5px;
+}

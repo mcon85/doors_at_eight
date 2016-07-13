@@ -2,9 +2,11 @@ require 'rails_helper'
 
 feature 'Update a venue' do
   let(:venue) { FactoryGirl.create(:venue, t_accessible: false) }
+  let(:admin) { FactoryGirl.create(:admin) }
   let(:t_is_accessible_string) { 'T is nearby' }
 
   before do
+    login_user(admin)
     visit edit_venue_path(venue)
   end
 
