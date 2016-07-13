@@ -10,7 +10,8 @@ feature 'Delete a user' do
     click_button('Cancel my account')
 
     expect(page).not_to have_content(user.username)
-    expect(page).to have_content('Your account has been successfully cancelled. We hope to see you again soon.')
+    expect(page).to have_content('Your account has been successfully
+                                 cancelled.')
   end
 
   scenario 'Unauthenticated user' do
