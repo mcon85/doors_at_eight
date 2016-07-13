@@ -10,15 +10,33 @@
   padding: 0;
 }
 
-.name {
+.votes {
+  margin: 15px auto auto 15px;
+}
+
+.heading {
   background: rgba($header-blue, .8);
   padding: 5px 10px;
   text-align: left;
+
+  h1 {
+    color: $yellow;
+    font-size: 20px;
+    margin: 0;
+    display: inline-block;
+  }
 
   h2 {
     color: $yellow;
     font-size: 16px;
     margin: 0;
+  }
+
+  a {
+    font-size: 14px;
+    float: right;
+    margin-top: 5px;
+    text-decoration: underline;
   }
 }
 
@@ -36,4 +54,23 @@
     font-size: 14px;
     margin: 0;
   }
+}
+
+.buttons {
+  padding-top: 10px;
+}
+
+ul.button-group {
+  display: inline-block;
+  margin-left: 0;
+}
+
+ul.button-group>li {
+  float: none;
+  display: inline-block;
+  margin-right: 5px;
+ }
+
+.fixed-width-button {
+  width: 75px;
 }
