@@ -2,12 +2,12 @@ class VenuesController < ApplicationController
   helper VotesHelper
 
   before_action :authenticate_user!, only: [
-                                            :new,
-                                            :create,
-                                            :edit,
-                                            :update,
-                                            :destroy
-                                          ]
+                                             :new,
+                                             :create,
+                                             :edit,
+                                             :update,
+                                             :destroy
+                                           ]
   before_action :check_owner, only: [:edit, :update, :destroy]
 
   def index

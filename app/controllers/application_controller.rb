@@ -47,5 +47,4 @@ class ApplicationController < ActionController::Base
   def model
     self.class.name.sub("Controller", "").singularize.constantize
   end
-
 end

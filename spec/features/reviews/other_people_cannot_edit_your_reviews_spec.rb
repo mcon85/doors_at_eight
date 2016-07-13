@@ -5,7 +5,7 @@ feature 'users cannot edit reviews they did not create', %{
   I can't edit other users' reviews
   So that I don't mess up other users opinion
 } do
-  #ACCEPTANCE CRITERIA
+  # ACCEPTANCE CRITERIA
   # [X] User cannot edit another user's review
   # [X] User cannot delete another user's review
   # [X] User cannot visit edit form
@@ -43,7 +43,7 @@ feature 'users cannot edit reviews they did not create', %{
 
   scenario 'user tries to delete reviews associated with a venue they made' do
     venue = FactoryGirl.create(:venue, user: user)
-    review = FactoryGirl.create(:review, user: another_user, venue: venue)
+    FactoryGirl.create(:review, user: another_user, venue: venue)
 
     within('.reviews') do
       expect(page).not_to have_button('Delete')

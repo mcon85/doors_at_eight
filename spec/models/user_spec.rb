@@ -38,7 +38,6 @@ describe User, type: :model do
     end
   end
 
-
   describe '#owner_of?' do
     Item = Struct.new(:user_id)
 
