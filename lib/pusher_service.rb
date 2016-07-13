@@ -1,7 +1,6 @@
 require 'pusher'
 
 class PusherService
-
   def initialize(channel, event, pusher = Pusher)
     @channel = channel
     @event = event
@@ -9,6 +8,6 @@ class PusherService
   end
 
   def trigger(data_hash)
-    @pusher.trigger(@channel, @event, data_hash);
+    @pusher.trigger(@channel, @event, data_hash)
   end
 end
