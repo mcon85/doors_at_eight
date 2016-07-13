@@ -21,9 +21,9 @@
 
   h1 {
     color: $yellow;
+    display: inline-block;
     font-size: 20px;
     margin: 0;
-    display: inline-block;
   }
 
   h2 {
@@ -32,9 +32,16 @@
     margin: 0;
   }
 
-  a.text-link {
-    font-size: 14px;
+  h2 a{
+    float: left;
+    font-size: 16px;
+    margin-top: 0px;
+    text-decoration: none;
+  }
+
+  a {
     float: right;
+    font-size: 14px;
     margin-top: 5px;
     text-decoration: underline;
   }
@@ -66,8 +73,8 @@ ul.button-group {
 }
 
 ul.button-group>li {
-  float: none;
   display: inline-block;
+  float: none;
   margin-right: 5px;
  }
 
