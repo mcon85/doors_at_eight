@@ -20,6 +20,7 @@ class RecentReviews extends Component {
   };
 
   getReviews() {
+    console.log('getting reviews');
     $.ajax({
       url: '/api/reviews',
       contentType: 'application/json'

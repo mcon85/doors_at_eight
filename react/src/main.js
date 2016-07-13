@@ -5,6 +5,7 @@ import RecentReviews from './components/RecentReviews.js';
 import PusherService from './lib/PusherService.js';
 
 $(function() {
+  console.log('mainjs is being run');
   let recentReviewsElement = document.getElementById('review-carousel')
   if(recentReviewsElement){
     ReactDOM.render(
