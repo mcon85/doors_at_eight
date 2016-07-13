@@ -10,6 +10,7 @@ class ReviewsController < ApplicationController
     @review.venue = @venue
     if @review.save
       flash[:notice] = 'Review added successfully'
+      send_email(@review, @venue)
       redirect_to venue_path(@venue)
     else
       flash[:error] = 'Problem saving review.'
@@ -48,5 +49,13 @@ class ReviewsController < ApplicationController
 
   def review_params
     params.require(:review).permit(:rating, :body)
+  end
+
+  def send_email(review, venue)
+    if !review.body.empty?
+      @owner = User.find(venue.user_id)
+      email = @owner.email
+      NotificationMailer.review_notification(email, venue, review).deliver_later
+    end
   end
 end
