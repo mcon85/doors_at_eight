@@ -2,11 +2,13 @@
 import React, { Component } from 'react';
 import Review from './Review.js';
 import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup';
-import PusherService from '../lib/PusherService';
 
 class RecentReviews extends Component {
   constructor(props) {
     super(props);
+
+    this.pusherService = props.pusherService;
+
     this.state = {
       reviews: []
     }
@@ -14,7 +16,7 @@ class RecentReviews extends Component {
     this.getReviews = this.getReviews.bind(this);
 
     this.receiveNewReview = this.receiveNewReview.bind(this);
-    new PusherService(this.receiveNewReview);
+    this.pusherService.config(this.receiveNewReview);
   };
 
   getReviews() {

@@ -1,7 +1,7 @@
 import PUSHER_PUBLIC_KEY from './PusherPublicKey';
 
 class PusherService {
-  constructor(callback) {
+  config(callback) {
     Pusher.logToConsole = true;
 
     this.pusher = new Pusher(PUSHER_PUBLIC_KEY, {
