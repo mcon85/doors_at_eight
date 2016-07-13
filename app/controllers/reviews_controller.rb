@@ -10,6 +10,7 @@ class ReviewsController < ApplicationController
     @review.venue = @venue
     if @review.save
       flash[:notice] = 'Review added successfully'
+      send_new_review(@review)
       redirect_to venue_path(@venue)
     else
       flash[:error] = 'Problem saving review.'
@@ -48,5 +49,19 @@ class ReviewsController < ApplicationController
 
   def review_params
     params.require(:review).permit(:rating, :body)
+  end
+
+  def send_new_review(review)
+    pusher = PusherService.new('review_channel', 'new_review')
+    pusher.trigger({
+                     review: {
+                               id: review.id,
+                               body: review.body,
+                               rating: review.rating,
+                               venue_name: review.venue.name,
+                               venue_id: review.venue.id,
+                               created_at: review.created_at
+                              }
+                    })
   end
 end

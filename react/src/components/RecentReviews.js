@@ -1,6 +1,8 @@
 // jshint ignore: start
 import React, { Component } from 'react';
 import Review from './Review.js';
+import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup';
+import PusherService from '../lib/PusherService';
 
 class RecentReviews extends Component {
   constructor(props) {
@@ -10,6 +12,9 @@ class RecentReviews extends Component {
     }
     this.populateReviews = this.populateReviews.bind(this);
     this.getReviews = this.getReviews.bind(this);
+
+    this.receiveNewReview = this.receiveNewReview.bind(this);
+    new PusherService(this.receiveNewReview);
   };
 
   getReviews() {
@@ -18,7 +23,7 @@ class RecentReviews extends Component {
       contentType: 'application/json'
     })
     .done(result => {
-      this.setState({ reviews: result.reviews});
+      this.setState({ reviews: result.reviews });
     });
   }
 
@@ -26,7 +31,7 @@ class RecentReviews extends Component {
     this.getReviews();
   }
 
-  populateReviews () {
+  populateReviews() {
     return this.state.reviews.map((review)=> {
       return (
         <Review
@@ -39,11 +44,29 @@ class RecentReviews extends Component {
     });
   }
 
+  receiveNewReview(data) {
+    let currentReviews = this.state.reviews;
+
+    currentReviews.unshift(data.review);
+
+    if(currentReviews.length > 3){
+      currentReviews.pop();
+    }
+
+    this.setState({ reviews: currentReviews });
+  }
+
   render () {
     return(
       <div className="review-list row">
         <div className="columns small-12 medium-6 medium-centered">
-          {this.populateReviews()}
+          <ReactCSSTransitionGroup transitionName="review"
+                                   transitionEnterTimeout={500}
+                                   transitionLeaveTimeout={300}
+                                   transitionAppear={true}
+                                   transitionAppearTimeout={500}>
+            {this.populateReviews()}
+          </ReactCSSTransitionGroup>
         </div>
       </div>
     );
