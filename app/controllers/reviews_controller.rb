@@ -29,16 +29,14 @@ class ReviewsController < ApplicationController
 
   def edit
     @review = Review.find(params[:id])
-    @venue = Venue.find(params[:venue_id])
   end
 
   def update
     @review = Review.find(params[:id])
-    @venue = Venue.find(params[:venue_id])
 
     if @review.update(review_params)
       flash[:success] = 'Review saved successfully'
-      redirect_to venue_path(@venue)
+      redirect_to venue_path(@review.venue)
     else
       flash[:error] = 'Problem saving review.'
       render :edit

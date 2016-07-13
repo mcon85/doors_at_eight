@@ -9,7 +9,7 @@
         <%= review.body %>
       </div>
       <% if current_user && current_user.owner_of?(review) %>
-        <%= button_to 'Edit', edit_venue_review_path(@venue, review),
+        <%= button_to 'Edit', edit_review_path(review),
                               class: 'button' %>
         <%= button_to 'Delete', review_path(review),
                                 method: 'delete',

@@ -7,7 +7,7 @@ feature 'Edit a review' do
 
   before do
     login_user(user)
-    visit edit_venue_review_path(venue, review)
+    visit edit_review_path(review)
   end
 
   scenario 'User edits a review' do
