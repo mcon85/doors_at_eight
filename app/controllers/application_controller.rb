@@ -26,18 +26,11 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def check_owner
+  def check_permissions
     item = model.find(params[:id])
 
-    if !current_user || !current_user.owner_of?(item)
+    if !current_user || !current_user.can_modify?(item)
       flash[:alert] = 'You do not have permission to complete that action.'
-      redirect_to root_path
-    end
-  end
-
-  def check_admin
-    if !current_user || !current_user.admin?
-      flash[:alert] = 'You do not have permission to perform that task'
       redirect_to root_path
     end
   end

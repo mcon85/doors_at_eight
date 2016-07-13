@@ -8,7 +8,7 @@ class VenuesController < ApplicationController
                                              :update,
                                              :destroy
                                            ]
-  before_action :check_owner, only: [:edit, :update, :destroy]
+  before_action :check_permissions, only: [:edit, :update, :destroy]
 
   def index
     @venues = Venue.all

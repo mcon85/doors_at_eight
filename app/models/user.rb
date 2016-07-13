@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
     role == 'admin'
   end
 
-  def owner_of?(item)
+  def can_modify?(item)
     admin? || id == item.user_id
   end
 

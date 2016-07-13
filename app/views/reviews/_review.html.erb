@@ -10,7 +10,7 @@
       </div>
       <div class="buttons columns small-3 medium-2">
         <ul class="button-group">
-          <% if current_user && current_user.owner_of?(review) %>
+          <% if current_user && current_user.can_modify?(review) %>
             <li>
               <%= link_to 'Edit',
                           edit_review_path(review),
