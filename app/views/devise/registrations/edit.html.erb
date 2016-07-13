@@ -36,10 +36,13 @@
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
 
+  <div>
+    Upload Avatar Image
+  </div>
   <%= render partial: 'avatar_upload', locals: { f: f } %>
 
   <div class="actions">
-    <%= f.submit "Update", class: 'button' %>
+    <%= f.submit "Update Account", class: 'button' %>
   </div>
 <% end %>
 
