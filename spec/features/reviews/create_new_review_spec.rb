@@ -20,4 +20,14 @@ feature 'Create a new review' do
     expect(page).to have_content('5')
     expect(page).to have_content('this place is the shit')
   end
+
+  scenario 'an unauthenticated user cannot create a new review' do
+    logout
+
+    visit new_venue_review_path(venue.id)
+
+    expect(page).to have_content('You need to sign in or sign up before '\
+                                 'continuing')
+    expect(current_path).to eq(new_user_session_path)
+  end
 end

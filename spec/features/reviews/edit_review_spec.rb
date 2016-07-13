@@ -24,4 +24,14 @@ feature 'Edit a review' do
     updated_review = Review.find(review.id)
     expect(updated_review.body).to eq('This review has been edited')
   end
+
+  scenario 'unauthenticated user cannot edit a review' do
+    logout
+
+    visit edit_review_path(review)
+
+    expect(page).to have_content('You need to sign in or sign up before '\
+                                 'continuing')
+    expect(current_path).to eq(new_user_session_path)
+  end
 end

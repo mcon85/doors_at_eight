@@ -38,4 +38,14 @@ feature 'Update a venue' do
     expect(page).to have_content("Name can't be blank")
     expect(page).to have_content("Address can't be blank")
   end
+
+  scenario 'unauthenticated user cannot edit a venue' do
+    logout
+
+    visit edit_venue_path(venue)
+
+    expect(page).to have_content('You need to sign in or sign up before '\
+                                 'continuing')
+    expect(current_path).to eq(new_user_session_path)
+  end
 end

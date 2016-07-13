@@ -35,4 +35,14 @@ feature 'Create a venue' do
     expect(page).to have_content("Name can't be blank")
     expect(page).to have_content("Address can't be blank")
   end
+
+  scenario 'an unauthenticated user cannot create a venue' do
+    logout
+
+    visit new_venue_path
+
+    expect(page).to have_content('You need to sign in or sign up before '\
+                                 'continuing')
+    expect(current_path).to eq(new_user_session_path)
+  end
 end
