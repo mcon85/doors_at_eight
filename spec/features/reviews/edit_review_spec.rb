@@ -15,7 +15,7 @@ feature 'Edit a review' do
     fill_in('Body', with: 'This review has been edited')
     click_button('Save Review')
 
-    within('.review-rating') do
+    within('.review .rating') do
       page.body.should have_content '3'
     end
 

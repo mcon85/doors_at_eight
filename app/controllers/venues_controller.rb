@@ -1,4 +1,7 @@
 class VenuesController < ApplicationController
+  helper VotesHelper
+  before_filter :check_admin, only: [:edit, :update, :destroy]
+
   def index
     @venues = Venue.all
   end
@@ -31,7 +34,6 @@ class VenuesController < ApplicationController
 
   def update
     @venue = Venue.find(params[:id])
-
     if @venue.update(venue_params)
       flash[:success] = 'Venue saved successfully'
       redirect_to venue_path(@venue)
@@ -44,7 +46,6 @@ class VenuesController < ApplicationController
 
   def destroy
     @venue = Venue.find(params[:id])
-
     if @venue.destroy
       flash[:success] = 'Venue deleted successfully'
       redirect_to venues_path

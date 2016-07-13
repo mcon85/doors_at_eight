@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'Create a new review' do
   let(:venue) { FactoryGirl.create(:venue) }
   let(:user) { FactoryGirl.create(:user) }
-  let(:review) { FactoryGirl.attributes_for(:review) }
+  let(:review) { FactoryGirl.build(:review, body: 'this place is the shit') }
 
   before do
     visit new_venue_review_path(venue.id)

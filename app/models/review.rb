@@ -1,6 +1,7 @@
 class Review < ActiveRecord::Base
   belongs_to :user
   belongs_to :venue
+  has_many :votes, dependent: :destroy
 
   validates :rating, presence: true,
                      numericality: { only_integer: true,

@@ -11,16 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160708193848) do
+ActiveRecord::Schema.define(version: 20160712200950) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "reviews", force: :cascade do |t|
-    t.integer "rating",   null: false
-    t.text    "body"
-    t.integer "user_id"
-    t.integer "venue_id"
+    t.integer  "rating",     null: false
+    t.text     "body"
+    t.integer  "user_id"
+    t.integer  "venue_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "reviews", ["user_id"], name: "index_reviews_on_user_id", using: :btree
@@ -54,15 +56,19 @@ ActiveRecord::Schema.define(version: 20160708193848) do
     t.string  "website"
     t.string  "address",                      null: false
     t.boolean "t_accessible", default: false
+    t.integer "user_id"
   end
 
+  add_index "venues", ["user_id"], name: "index_venues_on_user_id", using: :btree
+
   create_table "votes", force: :cascade do |t|
-    t.integer "user_id",   null: false
-    t.integer "review_id", null: false
+    t.integer "user_id"
+    t.integer "review_id"
     t.string  "vote_type", null: false
   end
 
   add_index "votes", ["review_id"], name: "index_votes_on_review_id", using: :btree
   add_index "votes", ["user_id"], name: "index_votes_on_user_id", using: :btree
 
+  add_foreign_key "venues", "users"
 end
