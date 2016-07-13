@@ -1,4 +1,9 @@
 class Venue < ActiveRecord::Base
+  include PgSearch
+
+  pg_search_scope :search_venue_only, against: [:name]
+  scope :search, -> (query) { search_venue_only(query) if query.present? }
+
   has_many :reviews, dependent: :destroy
   belongs_to :user
 
