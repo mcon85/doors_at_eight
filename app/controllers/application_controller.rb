@@ -31,6 +31,7 @@ class ApplicationController < ActionController::Base
 
     if !current_user || !current_user.owner_of?(item)
       flash[:alert] = 'You do not have permission to complete that action.'
+      redirect_to root_path
     end
   end
 
