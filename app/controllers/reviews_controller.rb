@@ -63,7 +63,7 @@ class ReviewsController < ApplicationController
                                   venue_id: review.venue.id,
                                   created_at: review.created_at
                                }
-                     )
+                    )
     end
   end
 end
