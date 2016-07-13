@@ -30,13 +30,13 @@
     color: $yellow;
     font-size: 16px;
     margin: 0;
-  }
 
-  h2 a{
+    a{
     float: left;
     font-size: 16px;
-    margin-top: 0px;
+    margin-top: 0;
     text-decoration: none;
+    }
   }
 
   a {
@@ -67,12 +67,12 @@
   padding-top: 10px;
 }
 
-ul.button-group {
+.button-group {
   display: inline-block;
   margin-left: 0;
 }
 
-ul.button-group>li {
+.button-group>li {
   display: inline-block;
   float: none;
   margin-right: 5px;
