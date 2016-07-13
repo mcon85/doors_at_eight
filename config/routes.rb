@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :admin do
     resources :users, except: [:create, :edit, :update, :new]
+  end
 
   namespace :api do
     resources :reviews, only: [:index]
