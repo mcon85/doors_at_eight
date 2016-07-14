@@ -1,3 +1,8 @@
+.content h1 {
+  margin-top: 20px;
+  font-size: 26px;
+}
+
 .review-list {
   text-align: center;
 }
@@ -80,4 +85,12 @@
 
 .fixed-width-button {
   width: 75px;
+}
+
+#review_rating {
+  width: 100px;
+}
+
+#review_body {
+  width: 700px;
 }
