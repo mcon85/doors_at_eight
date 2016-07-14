@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :homepage, only: [:index]
 
   resources :admin do
-    resources :users, except: [:create, :edit, :update, :new]
+    resources :users, only: [:index]
   end
 
   namespace :api do
