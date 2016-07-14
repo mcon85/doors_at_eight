@@ -3,7 +3,6 @@ require 'rails_helper'
 feature 'Update a venue' do
   let(:venue) { FactoryGirl.create(:venue, t_accessible: false) }
   let(:admin) { FactoryGirl.create(:admin) }
-  let(:t_is_accessible_string) { 'T is nearby' }
 
   before do
     login_user(admin)
@@ -23,7 +22,7 @@ feature 'Update a venue' do
     expect(page).to have_content('354')
     expect(page).to have_content('http://www.venueupdate.com')
     expect(page).to have_content('45 harrison blvd')
-    expect(page).to have_content(t_is_accessible_string)
+    expect(page).to have_css('.fa-train')
 
     expect(page).to have_content('Venue saved successfully')
   end

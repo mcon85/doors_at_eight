@@ -1,5 +1,18 @@
 <div class="venue-details">
-  <h1><%= @venue.name %></h1>
+  <h1>
+    <%= @venue.name %>
+    <% if @venue.t_accessible %>
+      <small class="train-icon">
+        <span data-tooltip aria-haspopup="true"
+              class="has-tip"
+              data-disable-hover="false"
+              tabindex="1"
+              title="<%= @venue.display_t_accessible %>">
+          <i class="fa fa-train fa-small"></i>
+        </span>
+      </small>
+    <% end %>
+  </h1>
   <div>
     <% if current_user && current_user.can_modify?(@venue) %>
       <ul class="button-group">
@@ -10,13 +23,16 @@
       </ul>
     <% end %>
   </div>
-  <br>
-  <p><%= link_to @venue.website, @venue.website, class: "website",
-                                              target: "_blank" %></p>
   <p class="venue-address"><%= @venue.address %></p>
+  <% if @venue.website %>
+    <p>
+      <%= link_to @venue.website, @venue.website, class: "website",
+                                                  target: "_blank" %>
+    </p>
+  <% end %>
   <p class="venue-capacity">Capacity: <%= @venue.capacity %></p>
-  <p class="venue-t-accessible"><%= @venue.display_t_accessible %></p>
 
+  <!-- For React -->
   <% if(current_user && current_user.admin?) %>
     <%= hidden_field_tag :current_user, 'admin' %>
   <% elsif(current_user) %>
@@ -25,6 +41,7 @@
     <%= hidden_field_tag :current_user, nil %>
   <% end %>
   <%= hidden_field_tag :venue_id, @venue.id %>
+  <!-- End For React -->
   <div id="react-reviews">
     <div class="heading">
       <h1>Reviews</h1>
