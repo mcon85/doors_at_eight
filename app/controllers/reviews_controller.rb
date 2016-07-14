@@ -53,8 +53,7 @@ class ReviewsController < ApplicationController
 
   def send_email(review, venue)
     if !review.body.empty?
-      @owner = User.find(venue.user_id)
-      email = @owner.email
+      email = venue.user.email
       NotificationMailer.review_notification(email, venue, review).deliver_later
     end
   end

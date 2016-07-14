@@ -4,7 +4,8 @@ class NotificationMailer < ApplicationMailer
   def review_notification(email, venue, review)
     @review = review
     @venue = venue
-    # @body = "A new review was left for your venue, #{venue.name}: #{review.body}"
+    attachments.inline['doorsateight_nav.jpg'] =
+      File.read("#{Rails.root}/app/assets/images/logos/doorsateight_nav.jpg")
     mail(to: email, subject: "New Review Available For #{@venue.name}")
   end
 end

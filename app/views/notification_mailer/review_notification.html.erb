@@ -9,8 +9,8 @@
     </style>
   </head>
   <body>
-    <%= image_tag "https://doors-at-eight.herokuapp.com/assets/logos/doorsateight_nav-96a4ad9a4cc508ebf1f0ae66b8e897b23e92a2590711948fa71b3f8e6df3a546.jpg" %>
-    <h1>A new review was left for your venue, <%= @venue.name %></h1>
+    <%= image_tag attachments['doorsateight_nav.jpg'].url %>
+    <h1>A new Doors At Eight review was left for your venue, <%= @venue.name %></h1>
     <h2>Rating:</h2>
     <%= @review.rating %>
     <h2>Comments:</h2>
