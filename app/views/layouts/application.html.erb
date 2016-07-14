@@ -15,6 +15,7 @@
       <ul class="menu">
         <li><a href="/" class="logo"><%= image_tag "logos/doorsateight_nav.jpg" %></a></li>
         <li><a href="/venues">All Venues</a></li>
+        <%= render "venues/search" %>
       </ul>
     </div>
     <div class="top-bar-right">
@@ -24,6 +25,9 @@
           <li>
             <%= link_to "#{current_user.username}", edit_user_registration_path(@user)%>
           </li>
+          <% if current_user.admin? %>
+            <li><%= link_to "Admin Section", admin_users_path(current_user.id) %></li>
+          <% end %>
           <li>
             <%= link_to 'Sign Out', destroy_user_session_path, class: 'button', method: 'delete' %>
           </li>
@@ -42,7 +46,7 @@
   <%= render "application/flash" %>
 
   <div class="row">
-    <div class="columns">
+    <div class="columns content">
       <%= yield %>
     </div>
   </div>

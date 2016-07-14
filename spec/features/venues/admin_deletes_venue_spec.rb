@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'Delete a venue' do
+feature 'Admin deletes a venue' do
   let(:venue) { FactoryGirl.create(:venue) }
   let(:admin) { FactoryGirl.create(:admin) }
   let(:t_is_accessible_string) { 'T is nearby' }

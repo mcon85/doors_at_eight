@@ -1,4 +1,6 @@
 class Venue < ActiveRecord::Base
+  include PgSearch
+
   has_many :reviews, dependent: :destroy
   belongs_to :user
 
@@ -11,6 +13,9 @@ class Venue < ActiveRecord::Base
                       format: { with: URI.regexp }
   validates :address, presence: true
   validates :t_accessible, inclusion: { in: [true, false] }
+
+  pg_search_scope :search_venue_only, against: [:name, :address]
+  scope :search, -> (query) { search_venue_only(query) if query.present? }
 
   def display_t_accessible
     if t_accessible
