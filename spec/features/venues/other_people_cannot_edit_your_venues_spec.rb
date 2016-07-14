@@ -28,7 +28,9 @@ feature 'users cannot edit venues they did not create', %{
     expect(page).to have_content('You do not have permission to complete '\
                                  'that action.')
     expect(current_path).to eq(root_path)
-    expect(page).not_to have_css('form')
+    within('.content') do
+      expect(page).not_to have_css('form')
+    end
   end
 
   scenario 'user tries to delete venue of another user' do

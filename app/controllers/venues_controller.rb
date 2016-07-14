@@ -25,7 +25,7 @@ class VenuesController < ApplicationController
 
   def create
     @venue = Venue.new(venue_params)
-
+    @venue.user = current_user
     if @venue.save
       flash[:success] = 'Venue saved successfully'
       redirect_to venue_path(@venue)
