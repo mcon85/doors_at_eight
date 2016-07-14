@@ -4,7 +4,13 @@ class Api::Reviews::VotesController < ApplicationController
   def index
     vote = Vote.where(user: current_user, review_id: params[:review_id]).first
 
-    render json: { vote: vote }, status: :ok
+    vote_count = if vote
+                   vote.review.vote_count
+                 else
+                   0
+                 end
+
+    render json: { vote: vote, vote_count: vote_count }, status: :ok
   end
 
   def create
@@ -37,6 +43,8 @@ class Api::Reviews::VotesController < ApplicationController
       vote = nil
     end
 
-    render json: { message: message, vote: vote }, status: :ok
+    render json: { message: message,
+                   vote: vote,
+                   vote_count: @review.vote_count }, status: :ok
   end
 end

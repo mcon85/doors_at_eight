@@ -5,7 +5,8 @@ class VoteButtons extends Component {
     super(props);
 
     this.state = {
-      vote: null
+      vote: null,
+      voteCount: 0
     }
 
     this.clickUpvote = this.clickUpvote.bind(this);
@@ -15,6 +16,7 @@ class VoteButtons extends Component {
     this.getVote = this.getVote.bind(this);
     this.upVoteClass = this.upVoteClass.bind(this);
     this.downVoteClass = this.downVoteClass.bind(this);
+    this.voteCountClass = this.voteCountClass.bind(this);
   }
 
   componentDidMount() {
@@ -27,7 +29,7 @@ class VoteButtons extends Component {
       method:'GET',
     })
     .success(data => {
-      this.setState({ vote: data.vote });
+      this.setState({ vote: data.vote, voteCount: data.vote_count });
     });
   }
 
@@ -53,7 +55,7 @@ class VoteButtons extends Component {
   }
 
   updateVote(data) {
-    this.setState({ vote: data.vote });
+    this.setState({ vote: data.vote, voteCount: data.vote_count });
   }
 
   upVoteClass() {
@@ -72,6 +74,16 @@ class VoteButtons extends Component {
     return voteClass;
   }
 
+  voteCountClass() {
+    let voteClass = 'vote-count';
+    if(this.state.voteCount > 0){
+      voteClass = voteClass + ' green';
+    } else if (this.state.voteCount < 0) {
+      voteClass = voteClass + ' red';
+    }
+    return voteClass;
+  }
+
   render() {
     if(this.props.currentUser){
       return (
@@ -82,6 +94,9 @@ class VoteButtons extends Component {
                     onClick={this.clickUpvote}>
               <i className="fa fa-chevron-up"></i>
             </button>
+          </div>
+          <div className={this.voteCountClass()}>
+            { this.state.voteCount }
           </div>
           <div className="downvote">
             <button type="submit"
@@ -96,7 +111,6 @@ class VoteButtons extends Component {
       return <div></div>;
     }
   }
-
 }
 
 export default VoteButtons;
