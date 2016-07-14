@@ -17,6 +17,8 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @venue = Venue.find(params[:venue_id])
     @review.venue = @venue
+    @review.user_id = current_user.id
+
     if @review.save
       flash[:notice] = 'Review added successfully'
       send_email(@review, @venue)
@@ -49,7 +51,7 @@ class ReviewsController < ApplicationController
     @review.destroy
 
     flash[:success] = 'Review deleted successfully'
-    redirect_to venues_path
+    redirect_to venue_path(@review.venue_id)
   end
 
   private
