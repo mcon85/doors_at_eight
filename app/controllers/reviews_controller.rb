@@ -52,7 +52,7 @@ class ReviewsController < ApplicationController
   end
 
   def send_email(review, venue)
-    if !review.body.empty?
+    unless review.body.empty?
       email = venue.user.email
       NotificationMailer.review_notification(email, venue, review).deliver_later
     end
