@@ -17,7 +17,13 @@
   <p class="venue-capacity">Capacity: <%= @venue.capacity %></p>
   <p class="venue-t-accessible"><%= @venue.display_t_accessible %></p>
 
-  <%= hidden_field_tag :current_user, (current_user != nil) %>
+  <% if(current_user && current_user.admin?) %>
+    <%= hidden_field_tag :current_user, 'admin' %>
+  <% elsif(current_user) %>
+    <%= hidden_field_tag :current_user, current_user.id %>
+  <% else %>
+    <%= hidden_field_tag :current_user, nil %>
+  <% end %>
   <%= hidden_field_tag :venue_id, @venue.id %>
   <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
   <div id="react-reviews">

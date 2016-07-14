@@ -14,7 +14,10 @@ class ReviewListItem extends Component {
     let authenticity_token = $('#authenticity_token').val();
 
     let modifyButtons = null;
-    if(this.props.currentUser) {
+    let currentUser = this.props.currentUser;
+
+    if(currentUser &&
+        (currentUser == 'admin' || currentUser == review.user_id)) {
       modifyButtons = (
         <ul className="button-group">
           <li>
