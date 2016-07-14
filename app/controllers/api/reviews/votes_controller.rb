@@ -26,11 +26,11 @@ class Api::Reviews::VotesController < ApplicationController
                       review: @review,
                       vote_type: params[:vote_type])
 
-      if vote.save
-        message = success_message
-      else
-        message = 'There was a problem saving that upvote.'
-      end
+      message = if vote.save
+                  success_message
+                else
+                  'There was a problem saving that upvote.'
+                end
     end
 
     if vote.destroyed?
