@@ -35,5 +35,6 @@ r7 = Review.create(user_id: u3.id, venue_id: v5.id, rating: 1, body: "I went to 
 
 r8 = Review.create(user_id: u2.id, venue_id: v4.id, rating: 4, body: "Came here for the Naked and Famous show and it was great! The venue's got a separate bar room from the concert room so not everyone is trying to listen to music and crowd the bartender all at the same time. For a few bucks there's also coat check (protip: get your coat during encore or prepare to wait!).")
 
-r9 = Review.create(user_id: , venue_id: , rating: , body: "")
-r10 = Review.create(user_id: , venue_id: , rating: , body: "")
+r9 = Review.create(user_id: u2.id, venue_id: v1.id, rating: 3, body: "Pros: vintage feel, great location, good capacity. Lots of great bars and restaurants near by, adjacent to Park MBTA stop. Cons: hard to navigate, crowded tight spaces, old narrow seats, low balcony. Bottom line if you are going here you are probably more concerned about the band itself, but be prepared for an 'old-school' experience.")
+
+r10 = Review.create(user_id: u2.id, venue_id: v3.id, rating: 5, body: "The Royal is an amazing Vaudeville Art Deco venue in downtown Boston. I went to see Allen Stone here the other night which was awesome, and making the event even better was the quality of the venue and its staff.")
