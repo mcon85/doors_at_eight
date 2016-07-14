@@ -1,6 +1,12 @@
 class Api::Reviews::VotesController < ApplicationController
   before_action :authenticate_user!
 
+  def index
+    vote = Vote.where(user: current_user, review_id: params[:review_id]).first
+
+    render json: { vote: vote }, status: :ok
+  end
+
   def create
     @review = Review.find(params[:review_id])
     vote = Vote.where(user: current_user, review: @review).first
@@ -27,6 +33,10 @@ class Api::Reviews::VotesController < ApplicationController
       end
     end
 
-    render json: { message: message }, status: :ok
+    if vote.destroyed?
+      vote = nil
+    end
+
+    render json: { message: message, vote: vote }, status: :ok
   end
 end
