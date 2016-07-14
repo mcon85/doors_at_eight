@@ -19,6 +19,10 @@ class User < ActiveRecord::Base
     role == 'admin'
   end
 
+  def can_modify?(item)
+    admin? || id == item.user_id
+  end
+
   def check_vote_status_of(review)
     vote = Vote.where(user: self, review: review).first
     if vote

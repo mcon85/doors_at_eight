@@ -10,12 +10,18 @@
       </div>
       <div class="buttons columns small-3 medium-2">
         <ul class="button-group">
-          <% if current_user %>
-            <li><%= link_to 'Edit', edit_venue_review_path(@venue, review),
-                                  class: 'button tertiery fixed-width-button' %></li>
-            <li><%= button_to 'Delete', review_path(review),
-                                    method: 'delete',
-                                    class: 'button tertiery fixed-width-button' %></li>
+          <% if current_user && current_user.can_modify?(review) %>
+            <li>
+              <%= link_to 'Edit',
+                          edit_review_path(review),
+                          class: 'button tertiery fixed-width-button' %>
+            </li>
+            <li>
+              <%= button_to 'Delete',
+                              review_path(review),
+                              method: 'delete',
+                              class: 'button tertiery fixed-width-button' %>
+            </li>
           <% end %>
         </ul>
       </div>
