@@ -1,20 +1,18 @@
 require 'rails_helper'
 
-feature 'Admin views all venues' do
-  scenario 'When admin visits page sees all users.' do
-    users = FactoryGirl.create_list(:user, 3)
+feature 'Admin deletes a user' do
+  scenario 'Admin deletes a user' do
+    user = FactoryGirl.create(:user)
     admin = FactoryGirl.create(:user, role: "admin")
 
     login_user(admin)
     visit root_path
+
     click_link 'Admin Section'
+    first('.delete-button').click_button('Delete User')
 
-    users.each do |user|
-      expect(page).to have_content(user.username)
-      expect(page).to have_content(admin.username)
-    end
-
-
+    expect(page).to have_content('User deleted')
+    expect{ User.find(user.id) }.to raise_error(ActiveRecord::RecordNotFound)
   end
 
   scenario 'Non-admin is rejected from viewing user index' do
