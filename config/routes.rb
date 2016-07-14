@@ -5,6 +5,10 @@ Rails.application.routes.draw do
 
   resources :homepage, only: [:index]
 
+  resources :admin do
+    resources :users, only: [:index]
+  end
+
   namespace :api do
     resources :reviews, only: [:index]
   end
@@ -16,10 +20,10 @@ Rails.application.routes.draw do
                             :create,
                             :update,
                             :destroy] do
-    resources :reviews, only: [:index, :new, :create, :edit, :update]
+    resources :reviews, only: [:index, :new, :create]
   end
 
-  resources :reviews, only: [:show, :destroy] do
+  resources :reviews, only: [:show, :edit, :update, :destroy] do
     resources :votes, only: [:create]
   end
   # The priority is based upon order of creation: first created -> highest priority.

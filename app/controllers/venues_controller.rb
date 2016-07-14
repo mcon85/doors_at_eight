@@ -1,9 +1,17 @@
 class VenuesController < ApplicationController
   helper VotesHelper
-  before_filter :check_admin, only: [:edit, :update, :destroy]
+
+  before_action :authenticate_user!, only: [
+                                             :new,
+                                             :create,
+                                             :edit,
+                                             :update,
+                                             :destroy
+                                           ]
+  before_action :check_permissions, only: [:edit, :update, :destroy]
 
   def index
-    @venues = Venue.all
+    @venues = Venue.search(params[:query])
   end
 
   def show

@@ -6,6 +6,7 @@ feature 'Create a new review' do
   let(:review) { FactoryGirl.build(:review, body: 'this place is the shit') }
 
   before do
+    login_user(user)
     visit new_venue_review_path(venue.id)
   end
 
@@ -29,5 +30,15 @@ feature 'Create a new review' do
     expect(page).to have_content("Rating can't be blank")
     expect(page).to have_content('Rating is not a number')
     expect(review.persisted?).to eq(false)
+  end
+  
+  scenario 'an unauthenticated user cannot create a new review' do
+    logout
+
+    visit new_venue_review_path(venue.id)
+
+    expect(page).to have_content('You need to sign in or sign up before '\
+                                 'continuing')
+    expect(current_path).to eq(new_user_session_path)
   end
 end
