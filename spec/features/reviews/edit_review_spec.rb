@@ -3,11 +3,11 @@ require 'rails_helper'
 feature 'Edit a review' do
   let(:venue) { FactoryGirl.create(:venue) }
   let(:user) { FactoryGirl.create(:user) }
-  let!(:review) { FactoryGirl.create(:review, venue: venue) }
+  let!(:review) { FactoryGirl.create(:review, venue: venue, user: user) }
 
   before do
     login_user(user)
-    visit edit_venue_review_path(venue, review)
+    visit edit_review_path(review)
   end
 
   scenario 'User edits a review' do
@@ -23,5 +23,15 @@ feature 'Edit a review' do
 
     updated_review = Review.find(review.id)
     expect(updated_review.body).to eq('This review has been edited')
+  end
+
+  scenario 'unauthenticated user cannot edit a review' do
+    logout
+
+    visit edit_review_path(review)
+
+    expect(page).to have_content('You need to sign in or sign up before '\
+                                 'continuing')
+    expect(current_path).to eq(new_user_session_path)
   end
 end

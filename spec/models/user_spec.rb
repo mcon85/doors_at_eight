@@ -38,6 +38,31 @@ describe User, type: :model do
     end
   end
 
+  describe '#can_modify?' do
+    Item = Struct.new(:user_id)
+
+    it 'returns true if the user is an admin' do
+      admin = FactoryGirl.create(:user, role: 'admin')
+      item = Item.new('not the admin id')
+
+      expect(admin.can_modify?(item)).to eq(true)
+    end
+
+    it 'returns true if the user is the owner of the item' do
+      user = FactoryGirl.create(:user)
+      item = Item.new(user.id)
+
+      expect(user.can_modify?(item)).to eq(true)
+    end
+
+    it 'returns false if the user is not the owner of the item' do
+      user = FactoryGirl.create(:user)
+      item = Item.new('not the user id')
+
+      expect(user.can_modify?(item)).to eq(false)
+    end
+  end
+
   describe '#check_vote_status_of' do
     let(:user) { FactoryGirl.create(:user) }
 

@@ -8,7 +8,7 @@ feature 'can make edits to user account', :devise do
     click_link user.username
     fill_in 'Username', with: 'awesomesauce'
     fill_in 'Current password', with: user.password
-    click_button 'Update'
+    click_button 'Update Account'
 
     expect(page).to have_content I18n.t 'devise.registrations.updated'
     expect(page).to have_content 'awesomesauce'
@@ -22,7 +22,7 @@ feature 'can make edits to user account', :devise do
     click_link user1.username
     fill_in 'Username', with: user2.username
     fill_in 'Current password', with: user1.password
-    click_button 'Update'
+    click_button 'Update Account'
 
     expect(page).to have_content 'Username has already been taken'
   end
@@ -34,7 +34,7 @@ feature 'can make edits to user account', :devise do
     click_link user.username
     fill_in 'Email', with: 'newemail@test.com'
     fill_in 'Current password', with: user.password
-    click_button 'Update'
+    click_button 'Update Account'
 
     expect(page).to have_content I18n.t 'devise.registrations.updated'
     click_link user.username
@@ -49,7 +49,7 @@ feature 'can make edits to user account', :devise do
     click_link user1.username
     fill_in 'Email', with: user2.email
     fill_in 'Current password', with: user1.password
-    click_button 'Update'
+    click_button 'Update Account'
 
     expect(page).to have_content 'Email has already been taken'
   end

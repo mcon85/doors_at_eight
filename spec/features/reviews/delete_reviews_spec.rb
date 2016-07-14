@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'Delete a review' do
   let(:user) { FactoryGirl.create(:user) }
   let!(:venue) { FactoryGirl.create(:venue) }
-  let!(:review) { FactoryGirl.create(:review, venue: venue) }
+  let!(:review) { FactoryGirl.create(:review, venue: venue, user: user) }
 
   scenario 'User deletes review' do
     login_user(user)

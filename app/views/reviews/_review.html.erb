@@ -1,20 +1,30 @@
-<div class="review row">
-  <div class="columns small-12 medium-6 medium-centered">
+<div class="row review">
+  <div class="columns small-12 medium-12">
     <div class="row">
       <%= render partial: 'votes/vote_buttons', locals: { review: review } %>
-      <div class="rating columns small-2">
-        <%= review.rating %>
+      <div class="rating columns small-1 medium-1">
+        <h3><%= review.rating %></h3>
       </div>
-      <div class="body columns small-9">
-        <%= review.body %>
+      <div class="rating-body columns small-6 medium-7">
+        <p><%= review.body %></p>
       </div>
-      <% if current_user %>
-        <%= button_to 'Edit', edit_venue_review_path(@venue, review), 
-                              class: 'button' %>
-        <%= button_to 'Delete', review_path(review),
-                                method: 'delete',
-                                class: 'button alert' %>
-      <% end %>
+      <div class="buttons columns small-3 medium-2">
+        <ul class="button-group">
+          <% if current_user && current_user.can_modify?(review) %>
+            <li>
+              <%= link_to 'Edit',
+                          edit_review_path(review),
+                          class: 'button tertiery fixed-width-button' %>
+            </li>
+            <li>
+              <%= button_to 'Delete',
+                              review_path(review),
+                              method: 'delete',
+                              class: 'button tertiery fixed-width-button' %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
