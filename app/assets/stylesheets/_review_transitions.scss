@@ -1,0 +1,19 @@
+.review-enter,
+.review-appear {
+  opacity: .01;
+}
+
+.review-enter.review-enter-active,
+.review-appear.review-appear-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.review-leave {
+  opacity: 1;
+
+  .review-leave.review-leave-active {
+    opacity: .01;
+    transition: opacity 300ms ease-in;
+  }
+}
