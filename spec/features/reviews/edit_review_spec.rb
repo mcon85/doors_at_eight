@@ -47,7 +47,7 @@ feature 'Edit a review' do
                                  'continuing')
     expect(current_path).to eq(new_user_session_path)
   end
-  
+
   scenario 'unauthenticated user cannot see edit button' do
     logout
 
