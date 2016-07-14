@@ -62,8 +62,8 @@ ActiveRecord::Schema.define(version: 20160712200950) do
   add_index "venues", ["user_id"], name: "index_venues_on_user_id", using: :btree
 
   create_table "votes", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "review_id"
+    t.integer "user_id",   null: false
+    t.integer "review_id", null: false
     t.string  "vote_type", null: false
   end
 
