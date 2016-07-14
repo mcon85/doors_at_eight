@@ -85,6 +85,9 @@ class VoteButtons extends Component {
   }
 
   render() {
+    let reviewVote = `/reviews/${this.props.reviewId}`;
+    let authenticityToken = $('#authenticity_token').val();
+
     if(this.props.currentUser){
       return (
         <div className="votes columns small-1 medium-1">
@@ -99,11 +102,15 @@ class VoteButtons extends Component {
             { this.state.voteCount }
           </div>
           <div className="downvote">
-            <button type="submit"
-                    className={this.downVoteClass()}
-                    onClick={this.clickDownvote}>
-              <i className="fa fa-chevron-down"></i>
-            </button>
+            <form action={reviewVote} acceptCharset="UTF-8" method="post">
+              <input name="utf8" type="hidden" value="✓" />
+              <input type="hidden"
+                     name="authenticity_token"
+                     value={authenticityToken} />
+              <button type="submit" className={this.downVoteClass()} onClick={this.clickDownvote}>
+                <i className="fa fa-chevron-down"></i>
+              </button>
+            </form>
           </div>
         </div>
       );
