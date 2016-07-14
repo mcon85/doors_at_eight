@@ -3,7 +3,7 @@ class VenuesController < ApplicationController
   before_filter :check_admin, only: [:edit, :update, :destroy]
 
   def index
-    @venues = Venue.all
+    @venues = Venue.search(params[:query])
   end
 
   def show
