@@ -62,16 +62,14 @@ class ReviewsController < ApplicationController
   def send_new_review(review)
     if !Rails.env.test?
       pusher = PusherService.new('review_channel', 'new_review')
-      pusher.trigger(
-                      review: {
-                                 id: review.id,
-                                 body: review.body,
-                                 rating: review.rating,
-                                 venue_name: review.venue.name,
-                                 venue_id: review.venue.id,
-                                 created_at: review.created_at
-                               }
-                    )
+      pusher.trigger(review: {
+                               id: review.id,
+                               body: review.body,
+                               rating: review.rating,
+                               venue_name: review.venue.name,
+                               venue_id: review.venue.id,
+                               created_at: review.created_at
+                             })
     end
   end
 
