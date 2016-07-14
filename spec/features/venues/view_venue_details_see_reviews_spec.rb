@@ -5,7 +5,7 @@ feature 'View details of the venue' do
   let!(:review) { FactoryGirl.create(:review,
                                      venue_id: venue.id,
                                      body: 'I love it here the most')
-                                      }
+                  }
 
   scenario 'Sees reviews if the venue has been reviewed' do
     visit venues_path
