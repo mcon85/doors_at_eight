@@ -15,13 +15,11 @@ feature 'Admin views all venues' do
   end
 
   scenario 'Non-admin is rejected from viewing user index' do
-    users = FactoryGirl.create_list(:user, 3)
     member = FactoryGirl.create(:user)
 
     login_user(member)
 
-
-    expect{ visit admin_users_path(member.id) }
-    .to raise_error(ActionController::RoutingError)
+    expect { visit admin_users_path(member.id) }.
+      to raise_error(ActionController::RoutingError)
   end
 end
