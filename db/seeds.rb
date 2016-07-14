@@ -41,7 +41,11 @@ r5 = Review.create(user_id: u2.id, venue_id: v3.id, rating: 5, body: "The Royal 
 
 # Venue 4
 
-r6 = Review.create(user_id: u2.id, venue_id: v4.id, rating: 4, body: "Came here for the Naked and Famous show and it was great! The venue's got a separate bar room from the concert room so not everyone is trying to listen to music and crowd the bartender all at the same time. For a few bucks there's also coat check (protip: get your coat during encore or prepare to wait!).")
+r6 = Review.create(user_id: u2.id, venue_id: v4.id, rating: 4, body: "Came \
+here for the Naked and Famous show and it was great! The venue's got a \
+separate bar room from the concert room so not everyone is trying to listen \
+to music and crowd the bartender all at the same time. For a few bucks there's \
+also coat check (protip: get your coat during encore or prepare to wait!).")
 
 # Venue 5
 
