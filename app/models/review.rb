@@ -10,7 +10,7 @@ class Review < ActiveRecord::Base
 
   def vote_count
     votes.all.reduce(0) do |total, vote|
-      if(vote.vote_type == 'up')
+      if vote.vote_type == 'up'
         total + 1
       else
         total - 1
