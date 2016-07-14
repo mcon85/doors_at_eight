@@ -4,6 +4,24 @@
   </div>
 </div>
 
-<div id="review-carousel">
-  You would see reviews here if you believed in the Javascript fairy.
+<div class="row">
+  <div class="reviews columns medium-8 medium-centered">
+    <% @reviews.each do |review| %>
+      <div class="row review">
+        <div class="review-top columns">
+          <div class="heading columns">
+            <h2><%= link_to review.venue.name, venue_path(review.venue) %></h2>
+          </div>
+        </div>
+        <div class="review-bottom">
+          <div class="rating columns small-1">
+            <h3><%= review.rating %></h3>
+          </div>
+          <div class="rating-body columns small-11">
+            <p><%= review.body %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
