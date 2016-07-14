@@ -5,9 +5,7 @@ Rails.application.routes.draw do
 
   resources :homepage, only: [:index]
 
-  resources :admin do
-    resources :users, only: [:index]
-  end
+  resources :admin_users, only: [:index, :destroy]
 
   namespace :api do
     resources :reviews, only: [:index, :create] do
