@@ -41,7 +41,7 @@ class ReviewsController < ApplicationController
     @review.destroy
 
     flash[:success] = 'Review deleted successfully'
-    redirect_to venues_path
+    redirect_to venue_path(@review.venue_id)
   end
 
   private
