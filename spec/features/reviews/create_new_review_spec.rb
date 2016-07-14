@@ -31,7 +31,7 @@ feature 'Create a new review' do
     expect(page).to have_content('Rating is not a number')
     expect(review.persisted?).to eq(false)
   end
-  
+
   scenario 'an unauthenticated user cannot create a new review' do
     logout
 
