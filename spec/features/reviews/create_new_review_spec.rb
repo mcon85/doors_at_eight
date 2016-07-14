@@ -19,4 +19,15 @@ feature 'Create a new review' do
     expect(page).to have_content('5')
     expect(page).to have_content('this place is the shit')
   end
+
+  scenario 'user submits review without rating' do
+    fill_in('Body', with: review[:body])
+
+    click_button('Save Review')
+
+    expect(page).to have_content('Problem saving review')
+    expect(page).to have_content("Rating can't be blank")
+    expect(page).to have_content('Rating is not a number')
+    expect(review.persisted?).to eq(false)
+  end
 end

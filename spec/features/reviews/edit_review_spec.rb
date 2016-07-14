@@ -24,4 +24,16 @@ feature 'Edit a review' do
     updated_review = Review.find(review.id)
     expect(updated_review.body).to eq('This review has been edited')
   end
+
+  scenario 'User edits a review and gives it a blank rating' do
+    select('Choose a Rating', from: 'Rating')
+    fill_in('Body', with: 'This review is bad')
+    old_review = Review.find(review.id)
+
+    click_button('Save Review')
+
+    expect(page).to have_content('Problem saving review')
+    expect(old_review.body).to_not be('This review is bad')
+
+  end
 end
