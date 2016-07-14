@@ -1,7 +1,7 @@
 <%= render 'application/errors' %>
 <%= form_for [@venue, @review] do |f| %>
   <%= f.label :rating %>
-  <%= f.select :rating, options_for_select(populate_ratings) %>
+  <%= f.select :rating, options_for_select(populate_ratings, @review.rating) %>
 
   <%= f.label :body %>
   <%= f.text_area :body, :rows => 5 %>
