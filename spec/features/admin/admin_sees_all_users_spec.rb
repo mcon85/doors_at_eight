@@ -13,8 +13,6 @@ feature 'Admin views all venues' do
       expect(page).to have_content(user.username)
       expect(page).to have_content(admin.username)
     end
-
-
   end
 
   scenario 'Non-admin is rejected from viewing user index' do

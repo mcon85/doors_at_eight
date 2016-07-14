@@ -12,7 +12,7 @@ feature 'Admin deletes a user' do
     first('.delete-button').click_button('Delete User')
 
     expect(page).to have_content('User deleted')
-    expect{ User.find(user.id) }.to raise_error(ActiveRecord::RecordNotFound)
+    expect { User.find(user.id) }.to raise_error(ActiveRecord::RecordNotFound)
   end
 
   scenario 'Non-admin is rejected from viewing user index' do
