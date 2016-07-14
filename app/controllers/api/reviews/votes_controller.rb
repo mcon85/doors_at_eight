@@ -3,14 +3,9 @@ class Api::Reviews::VotesController < ApplicationController
 
   def index
     vote = Vote.where(user: current_user, review_id: params[:review_id]).first
+    review = Review.find(params[:review_id])
 
-    vote_count = if vote
-                   vote.review.vote_count
-                 else
-                   0
-                 end
-
-    render json: { vote: vote, vote_count: vote_count }, status: :ok
+    render json: { vote: vote, vote_count: review.vote_count }, status: :ok
   end
 
   def create
