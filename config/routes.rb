@@ -5,6 +5,10 @@ Rails.application.routes.draw do
 
   resources :homepage, only: [:index]
 
+  resources :admin do
+    resources :users, only: [:index]
+  end
+
   namespace :api do
     resources :reviews, only: [:index]
   end
