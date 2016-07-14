@@ -1,6 +1,5 @@
 <div class="venue-details">
-  <h1>
-    <%= @venue.name %>
+  <h2><%= @venue.name %>
     <% if @venue.t_accessible %>
       <small class="train-icon">
         <span data-tooltip aria-haspopup="true"
@@ -8,11 +7,11 @@
               data-disable-hover="false"
               tabindex="1"
               title="<%= @venue.display_t_accessible %>">
-          <i class="fa fa-train fa-small"></i>
+          <i class="fa fa-train fa-2x"></i>
         </span>
       </small>
     <% end %>
-  </h1>
+  </h2>
   <div>
     <% if current_user && current_user.can_modify?(@venue) %>
       <ul class="button-group">

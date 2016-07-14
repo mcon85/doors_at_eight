@@ -13,14 +13,14 @@
   <nav class="top-bar">
     <div class="top-bar-left">
       <ul class="menu">
-        <li><a href="/" class="logo"><%= image_tag "logos/doorsateight_nav.jpg" %></a></li>
+        <li><a href="/" class="logo"><%= image_tag "logos/doorsateight_nav2.jpg" %></a></li>
         <li><a href="/venues">All Venues</a></li>
       </ul>
     </div>
     <div class="top-bar-right">
       <ul class="menu">
         <%= render "venues/search" %>
-        
+
         <% if user_signed_in? %>
           <li class="text"><%= image_tag current_user.avatar, class: 'avatar' %></li>
           <li>
