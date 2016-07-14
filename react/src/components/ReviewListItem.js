@@ -9,7 +9,7 @@ class ReviewListItem extends Component {
   render() {
     let review = this.props.review;
 
-    let edit_venue_review_path = `/venues/${review.venue_id}/reviews/${review.id}/edit`
+    let edit_venue_review_path = `/reviews/${review.id}/edit`
     let review_path = `/reviews/${review.id}`
     let authenticity_token = $('#authenticity_token').val();
 
