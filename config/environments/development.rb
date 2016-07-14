@@ -19,6 +19,12 @@ Rails.application.configure do
     address: 'localhost',
     port: 1025
   }
+  config.action_mailer.default_url_options = {
+    host: 'localhost',
+    port: 3000
+  }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -42,15 +48,6 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
-
-  # Default URL options for devise
-
-  config.action_mailer.default_url_options = {
-    host: 'localhost',
-    port: 3000
-  }
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.perform_deliveries = true
 
   # Serve static files in dev
   config.serve_static_files = true
