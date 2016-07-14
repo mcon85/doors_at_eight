@@ -85,38 +85,25 @@ class VoteButtons extends Component {
   }
 
   render() {
-    let review_vote = `/api/reviews/${this.props.reviewId}/votes`
-    let authenticity_token = $('#authenticity_token').val();
-
     if(this.props.currentUser){
       return (
         <div className="votes columns small-1 medium-1">
           <div className="upvote">
-            <form action={review_vote} acceptCharset="UTF-8" method="post">
-              <input name="utf8" type="hidden" value="✓" />
-              <input type="hidden"
-                     name="authenticity_token"
-                     value={authenticity_token} />
-
-                   <button type="submit" className={this.upVoteClass()} onClick={this.clickUpvote}>
-                <i className="fa fa-chevron-up"></i>
-              </button>
-            </form>
+            <button type="submit"
+                    className={this.upVoteClass()}
+                    onClick={this.clickUpvote}>
+              <i className="fa fa-chevron-up"></i>
+            </button>
           </div>
           <div className={this.voteCountClass()}>
             { this.state.voteCount }
           </div>
           <div className="downvote">
-            <form action={review_vote} acceptCharset="UTF-8" method="post">
-              <input name="utf8" type="hidden" value="✓" />
-              <input type="hidden"
-                     name="authenticity_token"
-                     value={authenticity_token} />
-
-                   <button type="submit" className={this.downVoteClass()} onClick={this.clickDownvote}>
-                <i className="fa fa-chevron-down"></i>
-              </button>
-            </form>
+            <button type="submit"
+                    className={this.downVoteClass()}
+                    onClick={this.clickDownvote}>
+              <i className="fa fa-chevron-down"></i>
+            </button>
           </div>
         </div>
       );
