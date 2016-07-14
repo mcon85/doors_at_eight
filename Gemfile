@@ -11,6 +11,7 @@ gem 'devise'
 gem 'carrierwave'
 gem 'foundation-rails'
 gem 'font-awesome-rails'
+gem 'pusher'
 gem 'pg_search'
 
 group :development, :test do
