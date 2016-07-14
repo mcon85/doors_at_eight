@@ -4,7 +4,6 @@ class VenuesController < ApplicationController
 
   def index
     @venues = Venue.search(params[:query])
-    @venue = Venue.new
   end
 
   def show
