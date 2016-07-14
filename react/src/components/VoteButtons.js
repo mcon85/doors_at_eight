@@ -5,7 +5,8 @@ class VoteButtons extends Component {
     super(props);
 
     this.state = {
-      vote: null
+      vote: null,
+      voteCount: 0
     }
 
     this.clickUpvote = this.clickUpvote.bind(this);
@@ -53,7 +54,7 @@ class VoteButtons extends Component {
   }
 
   updateVote(data) {
-    this.setState({ vote: data.vote });
+    this.setState({ vote: data.vote, voteCount: data.vote_count });
   }
 
   upVoteClass() {
@@ -70,6 +71,15 @@ class VoteButtons extends Component {
       voteClass = voteClass + ' red';
     }
     return voteClass;
+  }
+
+  voteCountClass() {
+    let voteClass = 'vote-count';
+    if(this.state.voteCount > 0){
+      voteClass = voteClass + ' green';
+    } else {
+      voteClass = voteClass + ' red';
+    }
   }
 
   render() {
@@ -91,6 +101,9 @@ class VoteButtons extends Component {
               </button>
             </form>
           </div>
+          <div className={voteCountClass()}>
+            { this.state.voteCount }
+          </div>
           <div className="downvote">
             <form action={review_vote} acceptCharset="UTF-8" method="post">
               <input name="utf8" type="hidden" value="✓" />
@@ -109,7 +122,6 @@ class VoteButtons extends Component {
       return <div></div>;
     }
   }
-
 }
 
 export default VoteButtons;

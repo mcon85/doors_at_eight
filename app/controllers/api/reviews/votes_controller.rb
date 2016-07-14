@@ -37,6 +37,8 @@ class Api::Reviews::VotesController < ApplicationController
       vote = nil
     end
 
-    render json: { message: message, vote: vote }, status: :ok
+    render json: { message: message,
+                   vote: vote,
+                   vote_count: @review.vote_count }, status: :ok
   end
 end
