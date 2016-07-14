@@ -1,4 +1,6 @@
 .votes {
+  text-align: center;
+
   .green {
     color: $green;
   }
@@ -8,7 +10,7 @@
   }
 
   .vote-count {
-    font-size: 1.1em;
+    font-size: 1.25em;
     text-align: center;
   }
 }

@@ -29,7 +29,7 @@ class VoteButtons extends Component {
       method:'GET',
     })
     .success(data => {
-      this.setState({ vote: data.vote });
+      this.setState({ vote: data.vote, voteCount: data.vote_count });
     });
   }
 
@@ -78,9 +78,10 @@ class VoteButtons extends Component {
     let voteClass = 'vote-count';
     if(this.state.voteCount > 0){
       voteClass = voteClass + ' green';
-    } else {
+    } else if (this.state.voteCount < 0) {
       voteClass = voteClass + ' red';
     }
+    return voteClass;
   }
 
   render() {
