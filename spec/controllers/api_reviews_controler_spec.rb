@@ -2,8 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Api::ReviewsController, type: :controller do
  describe 'GET /api/reviews' do
-   it ' retrieves the 4 reviews' do
-
+   it 'retrieves the 4 reviews' do
      create_list(:review, 4)
      reviews = create_list(:review, 4)
 
