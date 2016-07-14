@@ -16,6 +16,7 @@ class VoteButtons extends Component {
     this.getVote = this.getVote.bind(this);
     this.upVoteClass = this.upVoteClass.bind(this);
     this.downVoteClass = this.downVoteClass.bind(this);
+    this.voteCountClass = this.voteCountClass.bind(this);
   }
 
   componentDidMount() {
@@ -101,7 +102,7 @@ class VoteButtons extends Component {
               </button>
             </form>
           </div>
-          <div className={voteCountClass()}>
+          <div className={this.voteCountClass()}>
             { this.state.voteCount }
           </div>
           <div className="downvote">
