@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import VoteButtons from './VoteButtons';
 
 class ReviewListItem extends Component {
   constructor(props) {
@@ -15,7 +16,7 @@ class ReviewListItem extends Component {
     let modifyButtons = null;
     if(this.props.currentUser) {
       modifyButtons = (
-        <div className="review">
+        <ul className="button-group">
           <li>
             <a href={edit_venue_review_path}
                className="button tertiery fixed-width-button">
@@ -33,7 +34,7 @@ class ReviewListItem extends Component {
                      value={authenticity_token} />
             </form>
           </li>
-        </div>
+        </ul>
       );
     }
 
@@ -41,6 +42,8 @@ class ReviewListItem extends Component {
       <div className="row review">
         <div className="columns small-12 medium-12">
           <div className="row">
+            <VoteButtons currentUser={this.props.currentUser}
+                         reviewId={review.id} />
             <div className="rating columns small-1 medium-1">
               <h3>{review.rating}</h3>
             </div>
@@ -48,9 +51,7 @@ class ReviewListItem extends Component {
               <p>{review.body}</p>
             </div>
             <div className="buttons columns small-3 medium-2">
-              <ul className="button-group">
-                {modifyButtons}
-              </ul>
+              {modifyButtons}
             </div>
           </div>
         </div>
