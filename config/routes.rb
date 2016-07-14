@@ -6,7 +6,12 @@ Rails.application.routes.draw do
   resources :homepage, only: [:index]
 
   namespace :api do
-    resources :reviews, only: [:index]
+    resources :reviews, only: [:index] do
+      resources :votes, only: [:create]
+    end
+    resources :venues, only: [] do
+      resources :reviews, only: [:index], controller: 'venues/reviews'
+    end
   end
 
   resources :venues, only: [:index,
