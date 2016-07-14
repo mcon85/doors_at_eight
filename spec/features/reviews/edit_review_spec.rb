@@ -11,7 +11,8 @@ feature 'Edit a review' do
   end
 
   scenario 'User edits a review' do
-    click_button('Edit')
+    click_link('Edit')
+
     select('3', from: 'Rating')
     fill_in('Body', with: 'This review has been edited')
     click_button('Save Review')
@@ -27,7 +28,8 @@ feature 'Edit a review' do
   end
 
   scenario 'User edits a review and gives it a blank rating' do
-    click_button('Edit')
+    click_link('Edit')
+    
     select('Choose a Rating', from: 'Rating')
     fill_in('Body', with: 'This review is bad')
     old_review = Review.find(review.id)
