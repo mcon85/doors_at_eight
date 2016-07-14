@@ -21,3 +21,19 @@ v5 = Venue.create(name: "The Paradise", capacity: "350", website: "http://crossr
 v6 = Venue.create(name: "House of Blues", capacity: "500", website: "http://www.houseofblues.com/boston/", address: "15 Lansdowne St, Boston, MA 02215", t_accessible: true, user_id: u4.id)
 v7 = Venue.create(name: "Cafe 939", capacity: "100", website: "https://www.berklee.edu/red-room-cafe-939", address: " 939 Boylston St, Boston, MA 02115", t_accessible: true, user_id: u4.id)
 v8 = Venue.create(name: "Great Scott", capacity: "150", website: "http://www.greatscottboston.com/", address: "1222 Commonwealth Avenue, Allston, MA 02134", t_accessible: true, user_id: u4.id)
+
+r1 = Review.create(user_id: u3.id, venue_id: v8.id, rating: 4, body: "I love this venue! If you're looking for an intimate show, I recommend checking out Great Scott! It's so small that we were able to chat with the artists. I also like how you can just sit and watch the show too. Tickets are also quite affordable here.")
+r2 = Review.create(user_id: u2.id, venue_id: v8.id, rating: 5, body: "This is a great tiny venue. You can either get right up front and be as close to the stage as possible, or if you prefer you can sit at some high tables towards the back and still see perfectly. Most shows are in the $10-$12 range.")
+
+r3 = Review.create(user_id: u3.id, venue_id: v2.id, rating: 5, body: "Run river north played. Amazing. Everything was on schedule and the set up between the opener and run river north was short. Everything was smooth letting us focus on the music. And also the bartender was great. Shots are big! ")
+r4 = Review.create(user_id: u4.id, venue_id: v2.id, rating: 5, body: "A small-ish venue where the stage is high enough and the floor wide enough so that everyone can see and hear the band? These are the unicorns of the concert hall world. Somehow, BMH fits the bill. ")
+r5 = Review.create(user_id: u2.id, venue_id: v2.id, rating: 5, body: "Went here a lot over the years when it was named Harper's Ferry and have seen some great bands Vast, Antigones Rising, etc.  I just went to see Aurora.  The sound system is top notch, the beer fairly priced and the staff....just ridiculously friendly.    Will be returning.")
+
+r6 = Review.create(user_id: u2.id, venue_id: v5.id, rating: 4, body: "Paradise Rock Club might actually be one of my favorite small concert venues in the Boston area. The acoustics are fantastic, there are several bars spread out across the venue for maximum drink intake(decent prices too!), and the second floor is by far the best part.")
+r7 = Review.create(user_id: u3.id, venue_id: v5.id, rating: 1, body: "I went to see Stephen Marley at the paradise...I love Ragga and have seen him many times all over New England and the world... this venue I've been to 3 times and all three times I had to TRY to have a good time. The artists are always on point but the hospitality of this venue is POOR -- each time there was a problem with rude bartenders and staff!!!")
+
+
+r8 = Review.create(user_id: u2.id, venue_id: v4.id, rating: 4, body: "Came here for the Naked and Famous show and it was great! The venue's got a separate bar room from the concert room so not everyone is trying to listen to music and crowd the bartender all at the same time. For a few bucks there's also coat check (protip: get your coat during encore or prepare to wait!).")
+
+r9 = Review.create(user_id: , venue_id: , rating: , body: "")
+r10 = Review.create(user_id: , venue_id: , rating: , body: "")
