@@ -7,7 +7,7 @@ const Review = props => {
   return (
     <div className="row review">
       <div className="review-top columns">
-        <div className="name columns">
+        <div className="heading columns">
           <h2><a href={venuePath}>{props.venueName}</a></h2>
         </div>
       </div>

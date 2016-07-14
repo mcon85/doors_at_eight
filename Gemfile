@@ -11,6 +11,8 @@ gem 'devise'
 gem 'carrierwave'
 gem 'foundation-rails'
 gem 'font-awesome-rails'
+gem 'pusher'
+gem 'pg_search'
 
 group :development, :test do
   gem 'capybara'
@@ -21,6 +23,7 @@ group :development, :test do
   gem 'valid_attribute'
   gem 'shoulda-matchers', require: false
   gem 'dotenv-rails'
+  gem 'mailcatcher'
 end
 
 group :test do

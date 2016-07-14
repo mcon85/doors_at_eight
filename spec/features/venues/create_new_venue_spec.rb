@@ -1,10 +1,11 @@
 require 'rails_helper'
 
 feature 'Create a venue' do
+  let(:user) { FactoryGirl.create(:user) }
   let(:venue) { FactoryGirl.build(:venue) }
-  let(:t_is_accessible_string) { 'T is nearby' }
 
   before do
+    login_user(user)
     visit new_venue_path
   end
 
@@ -21,7 +22,7 @@ feature 'Create a venue' do
     expect(page).to have_content(venue['capacity'])
     expect(page).to have_content(venue['website'])
     expect(page).to have_content(venue['address'])
-    expect(page).to have_content(t_is_accessible_string)
+    expect(page).to have_css('.fa-train')
 
     expect(page).to have_content('Venue saved successfully')
   end
@@ -32,5 +33,15 @@ feature 'Create a venue' do
     expect(page).to have_content('Problems saving venue')
     expect(page).to have_content("Name can't be blank")
     expect(page).to have_content("Address can't be blank")
+  end
+
+  scenario 'an unauthenticated user cannot create a venue' do
+    logout
+
+    visit new_venue_path
+
+    expect(page).to have_content('You need to sign in or sign up before '\
+                                 'continuing')
+    expect(current_path).to eq(new_user_session_path)
   end
 end

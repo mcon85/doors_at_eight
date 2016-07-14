@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <style type="text/css" media="screen">
+      body { background: #262432; font-size: 14px; color: #fff; font-family: arial}
+      h1 { color: #F0B012; font-size: 18px }
+      h2 { color: #F0B012; font-size: 16px}
+    </style>
+  </head>
+  <body>
+    <%= image_tag attachments['doorsateight_nav.jpg'].url %>
+    <h1>A new Doors At Eight review was left for your venue, <%= @venue.name %></h1>
+    <h2>Rating:</h2>
+    <%= @review.rating %>
+    <h2>Comments:</h2>
+    <%= @review.body %>
+  </body>
+</html>
