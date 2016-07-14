@@ -48,4 +48,22 @@ feature 'Update a venue' do
                                  'continuing')
     expect(current_path).to eq(new_user_session_path)
   end
+
+  scenario 't is accesible is selected if true on venue' do
+    venue = FactoryGirl.create(:venue, user: admin, t_accessible: true)
+
+    visit edit_venue_path(venue)
+
+    expect(find("#t_accessible")).to be_checked
+    expect(find("#t_not_accessible")).not_to be_checked
+  end
+
+  scenario 't not accesible is selected if false on venue' do
+    venue = FactoryGirl.create(:venue, user: admin, t_accessible: false)
+
+    visit edit_venue_path(venue)
+
+    expect(find("#t_not_accessible")).to be_checked
+    expect(find("#t_accessible")).not_to be_checked
+  end
 end
