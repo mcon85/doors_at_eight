@@ -1,10 +1,11 @@
 <%= render 'application/errors' %>
 <%= form_for [@venue, @review] do |f| %>
   <%= f.label :rating %>
-  <%= f.select :rating, options_for_select(populate_ratings, @review.rating) %>
+  <%= f.select :rating, options_for_select(populate_ratings, @review.rating),
+               class: "review-rating" %>
 
   <%= f.label :body %>
-  <%= f.text_area :body, :rows => 5 %>
+  <%= f.text_area :body, :rows => 5, class: "review-body" %>
 
   <%= f.submit 'Save Review', class: "button"%>
 <% end %>
