@@ -1,6 +1,6 @@
 class Api::ReviewsController < ApiController
   def index
-    reviews = Review.order(created_at: :desc).limit(4)
+    reviews = Review.where("body <> ''").order(created_at: :desc).limit(4)
     review_map = reviews.map do |review|
       {
         id: review.id,
