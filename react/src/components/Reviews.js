@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReviewListItem from './ReviewListItem';
+import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup';
 
 class Reviews extends Component {
   constructor(props) {
@@ -14,6 +15,7 @@ class Reviews extends Component {
     this.venueId = this.venueId.bind(this);
     this.currentUser = this.currentUser.bind(this);
     this.formatReviews = this.formatReviews.bind(this);
+    this.onDeleteReview = this.onDeleteReview.bind(this);
   }
 
   componentDidMount() {
@@ -32,12 +34,29 @@ class Reviews extends Component {
     this.setState({ reviews: data.reviews });
   }
 
+  onDeleteReview(deletedReview) {
+    $.ajax({
+      url: `/api/reviews/${deletedReview.id}`,
+      method: 'DELETE'
+    })
+    .success((data) => {
+      let reviews = this.state.reviews;
+
+      reviews = reviews.filter((review) => {
+        return review.id != deletedReview.id;
+      });
+
+      this.setState({ reviews: reviews });
+    });
+  }
+
   formatReviews() {
     return this.state.reviews.map(review => {
       return (
         <ReviewListItem key={review.id}
                         review={review}
-                        currentUser={this.currentUser()} />
+                        currentUser={this.currentUser()}
+                        onDelete={this.onDeleteReview} />
       );
     });
   }
@@ -60,7 +79,13 @@ class Reviews extends Component {
           <a href={new_review_path}>Add A Review</a>
         </div>
         <div className="reviews">
+          <ReactCSSTransitionGroup transitionName="review"
+                                   transitionEnterTimeout={500}
+                                   transitionLeaveTimeout={300}
+                                   transitionAppear={true}
+                                   transitionAppearTimeout={500}>
           { this.formatReviews() }
+        </ReactCSSTransitionGroup>
         </div>
       </div>
     );
