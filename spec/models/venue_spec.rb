@@ -35,4 +35,18 @@ describe Venue, type: :model do
       expect(text).to eq('No nearby T station')
     end
   end
+
+  describe '#short_name' do
+    it "keeps short names the same" do
+      venue = FactoryGirl.create(:venue, name: 'Short Name')
+
+      expect(venue.short_name).to eq(venue.name)
+    end
+
+    it "shortens long venue names" do
+      venue = FactoryGirl.create(:venue, name: 'This Is A Venue Music Hall')
+
+      expect(venue.short_name).to eq('This Is A Venue Music...')
+    end
+  end
 end

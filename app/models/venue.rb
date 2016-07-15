@@ -24,4 +24,10 @@ class Venue < ActiveRecord::Base
       'No nearby T station'
     end
   end
+
+  def short_name
+    max = 20
+    temp_name = name
+    temp_name.length > max ? "#{temp_name[0..max].strip}..." : temp_name
+  end
 end

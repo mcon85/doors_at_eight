@@ -26,7 +26,7 @@ class ReviewsController < ApplicationController
       send_tweet(@review, @venue)
       redirect_to venue_path(@venue)
     else
-      flash[:error] = 'Problem saving review.'
+      flash[:alert] = 'Problem saving review.'
       @errors = @review.errors.full_messages
       render :new
     end
@@ -43,7 +43,7 @@ class ReviewsController < ApplicationController
       flash[:success] = 'Review saved successfully'
       redirect_to venue_path(@review.venue)
     else
-      flash[:error] = 'Problem saving review.'
+      flash[:alert] = 'Problem saving review.'
       render :edit
     end
   end
@@ -86,7 +86,7 @@ class ReviewsController < ApplicationController
   def send_tweet(review, venue)
     unless review.body.empty?
       twitter = TwitterService.new
-      twitter.send_tweet("New Review for #{venue.name}: "\
+      twitter.send_tweet("Review: #{venue.short_name}: "\
                          "#{review.short_body} #{venue_url(venue)}")
     end
   end
