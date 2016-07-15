@@ -78,4 +78,5 @@ RSpec.configure do |config|
   config.include AuthenticationHelper
 end
 
+PusherService.pusher = FakePusher
 TwitterService.client = FakeTwitter

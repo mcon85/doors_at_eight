@@ -34,12 +34,10 @@ class VoteButtons extends Component {
   }
 
   clickUpvote(event) {
-    event.preventDefault();
     this.saveVote('up');
   }
 
   clickDownvote(event) {
-    event.preventDefault();
     this.saveVote('down');
   }
 
@@ -92,9 +90,9 @@ class VoteButtons extends Component {
       return (
         <div className="votes columns small-1 medium-1">
           <div className="upvote">
-            <button type="submit"
-                    className={this.upVoteClass()}
-                    onClick={this.clickUpvote}>
+            <button className={this.upVoteClass()}
+                    onClick={this.clickUpvote}
+                    id='upvote-button'>
               <i className="fa fa-chevron-up"></i>
             </button>
           </div>
@@ -102,15 +100,11 @@ class VoteButtons extends Component {
             { this.state.voteCount }
           </div>
           <div className="downvote">
-            <form action={reviewVote} acceptCharset="UTF-8" method="post">
-              <input name="utf8" type="hidden" value="✓" />
-              <input type="hidden"
-                     name="authenticity_token"
-                     value={authenticityToken} />
-              <button type="submit" className={this.downVoteClass()} onClick={this.clickDownvote}>
+              <button className={this.downVoteClass()}
+                      onClick={this.clickDownvote}
+                      id='downvote-button'>
                 <i className="fa fa-chevron-down"></i>
               </button>
-            </form>
           </div>
         </div>
       );
