@@ -87,13 +87,7 @@ class ReviewsController < ApplicationController
     unless review.body.empty?
       twitter = TwitterService.new
       twitter.send_tweet("New Review for #{venue.name}: "\
-                         "#{truncate(review.body)} #{venue_url(venue)}")
+                         "#{review.short_body} #{venue_url(venue)}")
     end
-  end
-
-  def truncate(string)
-    max = 80
-    string.length > max ? "#{string[0..max]}..." : string
-    string
   end
 end

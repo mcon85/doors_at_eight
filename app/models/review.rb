@@ -8,6 +8,12 @@ class Review < ActiveRecord::Base
                                      greater_than_or_equal_to: 1,
                                      less_than_or_equal_to: 5 }
 
+  def short_body
+    max = 80
+    temp_body = body
+    temp_body.length > max ? "#{temp_body[0..max].strip}..." : temp_body
+  end
+
   def vote_count
     votes.all.reduce(0) do |total, vote|
       if vote.vote_type == 'up'
