@@ -1,6 +1,5 @@
 class FakePusherService {
   config(callback) {
-    debugger;
     return true;
   }
 }
