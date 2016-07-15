@@ -1,6 +1,10 @@
 require 'rails_helper'
 
-feature 'Venue searching' do
+feature 'Search for a venue', %{
+  As a user
+  I want to search for a venue by name or address
+  So that I can find cool music venues I have heard about
+} do
   let(:venue) { FactoryGirl.create(:venue) }
 
   scenario 'user searches by venue name that exists' do

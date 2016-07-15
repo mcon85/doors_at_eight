@@ -1,6 +1,10 @@
 require 'rails_helper'
 
-feature 'Create a venue' do
+feature 'Create a venue', %{
+  As a user
+  I want to create a venue
+  So that I can add my music venue to the site
+} do
   let(:user) { FactoryGirl.create(:user) }
   let(:venue) { FactoryGirl.build(:venue) }
 

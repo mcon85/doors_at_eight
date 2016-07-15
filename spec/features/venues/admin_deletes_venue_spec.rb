@@ -1,6 +1,10 @@
 require 'rails_helper'
 
-feature 'Admin deletes a venue' do
+feature 'Admin deletes venue', %{
+  As an administrator
+  I want to be able to delete any venue on the site
+  So I can remove venues if they are not appropriate
+} do
   let(:venue) { FactoryGirl.create(:venue) }
   let(:admin) { FactoryGirl.create(:admin) }
   let(:t_is_accessible_string) { 'T is nearby' }

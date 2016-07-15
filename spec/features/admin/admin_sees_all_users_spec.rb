@@ -1,6 +1,10 @@
 require 'rails_helper'
 
-feature 'Admin views all venues' do
+feature 'Admin views all users', %{
+  As an administrator
+  I want to view users
+  So that I can see who is using the site
+} do
   scenario 'When admin visits page sees all users.' do
     users = FactoryGirl.create_list(:user, 3)
     admin = FactoryGirl.create(:user, role: "admin")

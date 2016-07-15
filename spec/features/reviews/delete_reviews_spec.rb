@@ -1,6 +1,10 @@
 require 'rails_helper'
 
-feature 'Delete a review' do
+feature 'Delete a review', %{
+  As a user
+  I want to delete my own review
+  So that I can remove my thoughts about a venue
+} do
   let(:user) { FactoryGirl.create(:user) }
   let!(:venue) { FactoryGirl.create(:venue) }
   let!(:review) { FactoryGirl.create(:review, venue: venue, user: user) }

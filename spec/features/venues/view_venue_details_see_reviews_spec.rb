@@ -1,6 +1,10 @@
 require 'rails_helper'
 
-feature 'View details of the venue' do
+feature 'View reviews for a venue', %{
+  As a user
+  I want to the reviews for a venue
+  So that I can see what other people think about the venue
+} do
   let!(:venue) { FactoryGirl.create(:venue) }
   let!(:review) { FactoryGirl.create(:review,
                                      venue_id: venue.id,

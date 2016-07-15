@@ -1,6 +1,10 @@
 require "rails_helper"
 
-feature 'Venue owner gets email when user creates review' do
+feature 'Venue owner gets email when user creates review', %{
+  As a venue owner
+  I want to get an email when someone reviews
+  So that I can be notified when someone leaves a review for my venue
+} do
   let(:venue) { FactoryGirl.create(:venue) }
   let(:user) { FactoryGirl.create(:user) }
   let(:review) { FactoryGirl.build(:review, body: 'this place is the shit') }

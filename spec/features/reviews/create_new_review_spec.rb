@@ -1,6 +1,10 @@
 require 'rails_helper'
 
-feature 'Create a new review' do
+feature 'Create new review', %{
+  As a user
+  I want to leave a new review
+  So that I can share my thoughts about a venue
+} do
   let(:venue) { FactoryGirl.create(:venue) }
   let(:user) { FactoryGirl.create(:user) }
   let(:review) { FactoryGirl.build(:review, body: 'this place is the shit') }

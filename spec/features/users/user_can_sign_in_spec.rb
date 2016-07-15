@@ -1,6 +1,10 @@
 require 'rails_helper'
 
-feature 'can sign in with an existing account', :devise do
+feature 'User can sign in with existing account', %{
+  As a user
+  I want to sign in using my exisiting credentials
+  So that I can be authenticated and use more features of the site
+} do
   let(:user) { FactoryGirl.create(:user) }
 
   scenario 'signs in with an account' do
