@@ -2,7 +2,12 @@ class Api::Reviews::VotesController < ApplicationController
   before_action :authenticate_user!, only: :create
 
   def index
-    vote = Vote.where(user: current_user, review_id: params[:review_id]).first
+    vote = if current_user
+             Vote.where(user: current_user, review_id: params[:review_id]).first
+           else
+             nil
+           end
+           
     review = Review.find(params[:review_id])
     render json: { vote: vote, vote_count: review.vote_count }, status: :ok
   end
