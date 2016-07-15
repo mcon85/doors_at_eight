@@ -4,6 +4,12 @@ import VoteButtons from './VoteButtons';
 class ReviewListItem extends Component {
   constructor(props) {
     super(props);
+
+    this.deleteReview = this.deleteReview.bind(this);
+  }
+
+  deleteReview() {
+    this.props.onDelete(this.props.review);
   }
 
   render() {
@@ -27,15 +33,11 @@ class ReviewListItem extends Component {
             </a>
           </li>
           <li>
-            <form className="button_to" method="post" action={review_path}>
-              <input type="hidden" name="_method" value="delete" />
-              <input className="button tertiery fixed-width-button"
-                     type="submit"
-                     value="Delete" />
-              <input type="hidden"
-                     name="authenticity_token"
-                     value={authenticity_token} />
-            </form>
+            <button className="button tertiery fixed-width-button"
+                    type="submit"
+                    onClick={this.deleteReview} >
+              Delete
+            </button>
           </li>
         </ul>
       );

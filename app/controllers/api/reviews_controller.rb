@@ -13,4 +13,10 @@ class Api::ReviewsController < ApiController
     end
     render json: { reviews: review_map }, status: :ok
   end
+
+  def destroy
+    Review.destroy(params[:id])
+
+    render json: { message: 'Review deleted' }, status: :ok
+  end
 end

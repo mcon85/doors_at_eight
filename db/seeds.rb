@@ -6,10 +6,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-u1 = User.create(email: "concannon.maggie@gmail.com", role: "admin", username: "administrator", avatar: nil, password: 'password', password_confirmation: 'password')
-u2 = User.create(email: "mconboston2@gmail.com", role: "member", username: "Boston967", avatar: nil, password: 'password', password_confirmation: 'password')
-u3 = User.create(email: "mconboston3@gmail.com", role: "member", username: "Blink1824eva", avatar: nil, password: 'password', password_confirmation: 'password')
-u4 = User.create(email: "mconboston4@gmail.com", role: "member", username: "grouplove", avatar: nil, password: 'password', password_confirmation: 'password')
+u1 = User.create(email: "dae_admin@mailinator.com", role: "admin", username: "administrator", avatar: nil, password: 'password', password_confirmation: 'password')
+u2 = User.create(email: "dae1@mailinator.com", role: "member", username: "Boston967", avatar: nil, password: 'password', password_confirmation: 'password')
+u3 = User.create(email: "dae2@mailinator.com", role: "member", username: "Blink1824eva", avatar: nil, password: 'password', password_confirmation: 'password')
+u4 = User.create(email: "dae3@mailinator.com", role: "member", username: "grouplove", avatar: nil, password: 'password', password_confirmation: 'password')
 
 
 
