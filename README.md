@@ -18,17 +18,15 @@ Doors at Eight is a review app for the Boston live music scene. Users review the
 
 ## Features
 
-* The ability to add a venue to be reviewed.
-* The ability to write a review.
-* The ability to rate a venue.
-* The ability to upvote or downvote a review. (Ajax allows us to see the result without reloading a page)
-* A sign up and authentication system for users that allows to distinguish users and privileges that they have.
-* The ability to reset the password by generating an email to the user.
-* The ability to upload a profile photo (with CarrierWave).
-* The ability to search for items.
-* It has an Admin role. Admins are able to delete reviews or items if they are deemed to be inappropriate.
-* The ability to send  emails. Email is sent to the owner of a venue when a new review is posted about it.
-
+* The ability to add a venue.
+* The ability to review a venue by add a rating (and optional comment).
+* The ability to upvote or downvote a venue review. (Ajax allows us to see the result without reloading a page)
+* The ability to search for a venue.
+* User authentication (via Devise), including the ability to generate password reset emails.
+* Member and admin user roles to allow for administration of the site, permitting admins to delete reviews or venues if they are deemed to be inappropriate.
+* The ability to upload a user profile photo (with CarrierWave).
+* Venue owner notification when new reviews are left for a venue they've created using ActionMailer and SendGrid.
+* Tweets posted to @doors_at_eight Twitter account when new reviews are created.
 
 
 ## Modules
