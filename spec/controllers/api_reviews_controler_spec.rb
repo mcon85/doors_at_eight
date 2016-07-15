@@ -26,7 +26,8 @@ describe Api::ReviewsController, type: :controller do
       expect(response.content_type).to eq('application/json')
       expect(response).to have_http_status(:ok)
       expect(json['message']).to eq('Review deleted')
-      expect { Review.find(review.id) }.to raise_error(ActiveRecord::RecordNotFound)
+      expect { Review.find(review.id) }
+        .to raise_error(ActiveRecord::RecordNotFound)
     end
   end
 end
