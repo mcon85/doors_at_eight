@@ -7,9 +7,9 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 u1 = User.create(email: "concannon.maggie@gmail.com", role: "admin", username: "administrator", avatar: nil, password: 'password', password_confirmation: 'password')
-u2 = User.create(email: "mconboston2@gmail.com", role: "member", username: "Boston967", avatar: nil, password: 'password', password_confirmation: 'password')
-u3 = User.create(email: "mconboston3@gmail.com", role: "member", username: "Blink1824eva", avatar: nil, password: 'password', password_confirmation: 'password')
-u4 = User.create(email: "mconboston4@gmail.com", role: "member", username: "grouplove", avatar: nil, password: 'password', password_confirmation: 'password')
+u2 = User.create(email: "mconboston+2@gmail.com", role: "member", username: "Boston967", avatar: nil, password: 'password', password_confirmation: 'password')
+u3 = User.create(email: "mconboston+3@gmail.com", role: "member", username: "Blink1824eva", avatar: nil, password: 'password', password_confirmation: 'password')
+u4 = User.create(email: "mconboston+4@gmail.com", role: "member", username: "grouplove", avatar: nil, password: 'password', password_confirmation: 'password')
 
 
 
