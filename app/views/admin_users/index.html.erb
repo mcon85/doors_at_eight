@@ -1,10 +1,11 @@
+<h2>Administrator Control Panel</h2>
+<h3>Current Users</h3>
+
 <ul>
   <% @admin_users.each do |user| %>
-    <li><%= user.username %></li>
-    <ul class="button-group">
-      <li class="delete-button"><%= button_to 'Delete User', admin_user_path(user), data: {confirm: 'Are you sure?' },
-      method: :delete, class: 'button tertiery' %>
+    <li><%= user.username %>
+      <%= link_to 'Delete User', admin_user_path(user), data: {confirm: 'Are you sure?' },
+      method: :delete, class: 'delete' %>
       </li>
-    </ul>
   <% end %>
 </ul>
