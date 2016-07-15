@@ -3,21 +3,24 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import RecentReviews from './components/RecentReviews.js';
 import Reviews from './components/Reviews.js';
-
-if(document.getElementById('testing')){
-  import PusherService from './lib/FakePusherService.js';
-} else {
-  import PusherService from './lib/PusherService.js';
-}
+import PusherService from './lib/PusherService.js';
+import FakePusherService from './lib/FakePusherService.js';
 
 $(function() {
   console.log('mainjs is being run');
   let recentReviewsElement = document.getElementById('review-carousel')
   if(recentReviewsElement){
-    ReactDOM.render(
-      <RecentReviews pusherService={new PusherService()}/>,
-      recentReviewsElement
-    );
+    if(document.getElementById('testing')){
+      ReactDOM.render(
+        <RecentReviews pusherService={new FakePusherService()}/>,
+        recentReviewsElement
+      );
+    } else {
+      ReactDOM.render(
+        <RecentReviews pusherService={new PusherService()}/>,
+        recentReviewsElement
+      );
+    }
   }
 
   let reviewsElement = document.getElementById('react-reviews');
