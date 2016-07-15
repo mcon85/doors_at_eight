@@ -1,5 +1,5 @@
 class Api::Reviews::VotesController < ApplicationController
-  before_action :authenticate_user!, only: :create
+  before_action :authenticate_user!
 
   def index
     vote = Vote.where(user: current_user, review_id: params[:review_id]).first
