@@ -51,6 +51,9 @@
       <%= yield %>
     </div>
   </div>
-
+  
+  <% if Rails.env.test? %>
+    <%= hidden_field_tag :testing, true  %>
+  <% end %>
 </body>
 </html>

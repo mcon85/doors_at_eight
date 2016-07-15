@@ -5,10 +5,10 @@ describe PusherService do
   let(:channel) { 'test_channel' }
   let(:event) { 'test_event' }
   let(:data) { { message: 'some information' } }
-  let(:pusher_service) { PusherService.new(channel, event, FakePusher) }
+  let(:pusher_service) { PusherService.new(channel, event) }
 
   it 'accepts a channel and event type' do
-    expect { PusherService.new(channel, event, FakePusher) }.not_to raise_error
+    expect { PusherService.new(channel, event) }.not_to raise_error
   end
 
   it 'has a trigger method accepts data as a hash' do
