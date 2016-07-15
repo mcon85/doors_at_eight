@@ -1,10 +1,11 @@
 require 'rails_helper'
 
 describe Api::Reviews::VotesController do
+  let(:user) { FactoryGirl.create(:user) }
+  let(:review) { FactoryGirl.create(:review) }
+
   describe 'GET index' do
     it 'returns a list of votes' do
-      user = FactoryGirl.create(:user)
-      review = FactoryGirl.create(:review)
       vote = FactoryGirl.create(:vote, user_id: user.id, review_id: review.id,
                                 vote_type: 'up')
 
@@ -25,8 +26,6 @@ describe Api::Reviews::VotesController do
 
     describe 'POST #create' do
       it 'posts a new vote' do
-        user = FactoryGirl.create(:user)
-        review = FactoryGirl.create(:review)
         vote = FactoryGirl.build(:vote, user_id: user.id, review_id: review.id,
                                  vote_type: 'up')
 
