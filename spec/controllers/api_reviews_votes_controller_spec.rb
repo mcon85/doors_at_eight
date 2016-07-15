@@ -28,7 +28,7 @@ describe Api::Reviews::VotesController do
         user = FactoryGirl.create(:user)
         review = FactoryGirl.create(:review)
         vote = FactoryGirl.build(:vote, user_id: user.id, review_id: review.id,
-        vote_type: 'up')
+                                 vote_type: 'up')
 
         allow(request.env['warden']).to receive(:authenticate!).and_return(user)
         allow(controller).to receive(:current_user).and_return(user)
