@@ -77,3 +77,5 @@ end
 RSpec.configure do |config|
   config.include AuthenticationHelper
 end
+
+TwitterService.client = FakeTwitter

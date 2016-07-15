@@ -23,6 +23,7 @@ class ReviewsController < ApplicationController
       flash[:notice] = 'Review added successfully'
       send_new_review(@review)
       send_email(@review, @venue)
+      send_tweet(@review, @venue)
       redirect_to venue_path(@venue)
     else
       flash[:error] = 'Problem saving review.'
@@ -79,6 +80,14 @@ class ReviewsController < ApplicationController
     unless review.body.empty?
       email = venue.user.email
       NotificationMailer.review_notification(email, venue, review).deliver_later
+    end
+  end
+
+  def send_tweet(review, venue)
+    unless review.body.empty?
+      twitter = TwitterService.new
+      twitter.send_tweet("New Review for #{venue.name}: "\
+                         "#{review.short_body} #{venue_url(venue)}")
     end
   end
 end

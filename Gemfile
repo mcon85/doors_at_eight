@@ -13,6 +13,7 @@ gem 'foundation-rails'
 gem 'font-awesome-rails'
 gem 'pusher'
 gem 'pg_search'
+gem 'twitter'
 
 group :development, :test do
   gem 'capybara'

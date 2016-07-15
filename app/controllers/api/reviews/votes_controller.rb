@@ -9,36 +9,11 @@ class Api::Reviews::VotesController < ApplicationController
 
   def create
     @review = Review.find(params[:review_id])
-    vote = Vote.where(user: current_user, review: @review).first
+    vote = Vote.create_or_cancel(current_user.id,
+                                 params[:review_id],
+                                 params[:vote_type])
 
-    success_message = "Thanks for #{params[:vote_type]}-voting!"
-
-    if vote
-      if vote.vote_type == params[:vote_type]
-        vote.destroy
-        message = 'Your vote was removed.'
-      else
-        vote.update(vote_type: params[:vote_type])
-        message = success_message
-      end
-    else
-      vote = Vote.new(user: current_user,
-                      review: @review,
-                      vote_type: params[:vote_type])
-
-      message = if vote.save
-                  success_message
-                else
-                  'There was a problem saving that upvote.'
-                end
-    end
-
-    if vote.destroyed?
-      vote = nil
-    end
-
-    render json: { message: message,
-                   vote: vote,
+    render json: { vote: vote,
                    vote_count: @review.vote_count }, status: :ok
   end
 end

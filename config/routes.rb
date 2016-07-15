@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :admin_users, only: [:index, :destroy]
 
   namespace :api do
-    resources :reviews, only: [:index, :create] do
+    resources :reviews, only: [:index, :create, :destroy] do
       resources :votes, only: [:index, :create], controller: 'reviews/votes'
     end
     resources :venues, only: [] do
