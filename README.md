@@ -1,4 +1,5 @@
 # Doors At Eight
+
 ![Build Status](https://codeship.com/projects/9eab13e0-2503-0134-e487-0e3391f87f23/status?branch=master)
 ![Coverage Status](https://coveralls.io/repos/mcon85/doors_at_eight/badge.png)
 
@@ -20,17 +21,23 @@ Doors at Eight is a review app for the Boston live music scene. Users review the
 * The ability to add a venue.
 * The ability to review a venue by add a rating (and optional comment).
 * The ability to upvote or downvote a venue review. (Ajax allows us to see the result without reloading a page)
+
+  ![Vote on a Review](/readme_files/voting.gif)
+
 * The ability to search for a venue.
 * User authentication (via Devise), including the ability to generate password reset emails.
 * Member and admin user roles to allow for administration of the site, permitting admins to delete reviews or venues if they are deemed to be inappropriate.
 * The ability to upload a user profile photo (with CarrierWave).
 * Venue owner notification when new reviews are left for a venue they've created using ActionMailer and SendGrid.
 * Tweets posted to @doors_at_eight Twitter account when new reviews are created.
+* Homepage automatically updated when a new review is added
+
+  ![Auto Update Homepage](/readme_files/auto_update_homepage.gif)
 
 
 ## Modules
 
-It was build using next technologies:
+It was build using the following technologies:
 
 * [Ruby](https://www.ruby-lang.org/en/)
 * [RubyOnRails](http://rubyonrails.org/)
