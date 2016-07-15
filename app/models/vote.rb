@@ -1,4 +1,6 @@
 class Vote < ActiveRecord::Base
+  attr_accessor :message
+
   belongs_to :user
   belongs_to :review
 
@@ -37,13 +39,5 @@ class Vote < ActiveRecord::Base
     else
       vote
     end
-  end
-
-  def message=(text)
-    @message = text
-  end
-
-  def message
-    @message
   end
 end

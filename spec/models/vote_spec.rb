@@ -13,12 +13,12 @@ describe Vote, type: :model do
     review = FactoryGirl.create(:review)
 
     it 'creates a new vote if one does not exist' do
-        vote = Vote.create_or_cancel(user.id, review.id, 'up')
+      vote = Vote.create_or_cancel(user.id, review.id, 'up')
 
-        expect(vote).not_to be(nil)
-        expect(vote.vote_type).to eq('up')
-        expect(vote.review_id).to eq(review.id)
-        expect(vote.user_id).to eq(user.id)
+      expect(vote).not_to be(nil)
+      expect(vote.vote_type).to eq('up')
+      expect(vote.review_id).to eq(review.id)
+      expect(vote.user_id).to eq(user.id)
     end
 
     it 'switches the vote status if the vote_type is switched' do
