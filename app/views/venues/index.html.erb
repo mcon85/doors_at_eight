@@ -2,6 +2,12 @@
 <%= link_to 'Add New Venue', new_venue_path, class: "button" %>
 <ul>
   <% @venues.each do |venue| %>
-    <li><%= link_to venue.name, venue_path(venue) %></li>
+    <li><%= link_to venue.name, venue_path(venue) %>
+      <% if venue.reviews.count == 1 %>
+        (<%= venue.reviews.count %> review)
+      <% elsif venue.reviews.count > 1 %>
+        (<%= venue.reviews.count %> reviews)
+      <% end %>
+    </li>
   <% end %>
 </ul>
