@@ -5,7 +5,7 @@
   <% @admin_users.each do |user| %>
     <li><%= user.username %>
       <%= link_to 'Delete User', admin_user_path(user), data: {confirm: 'Are you sure?' },
-      method: :delete, class: 'small-button tertiery' %>
+      method: :delete, class: 'delete' %>
       </li>
   <% end %>
 </ul>

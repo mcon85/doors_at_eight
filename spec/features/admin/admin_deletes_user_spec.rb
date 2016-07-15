@@ -9,7 +9,7 @@ feature 'Admin deletes a user' do
     visit root_path
 
     click_link 'Admin Section'
-    first('.delete-button').click_button('Delete User')
+    first('.delete').click
 
     expect(page).to have_content('User deleted')
     expect { User.find(user.id) }.to raise_error(ActiveRecord::RecordNotFound)
