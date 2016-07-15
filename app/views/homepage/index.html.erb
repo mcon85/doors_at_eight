@@ -3,7 +3,21 @@
     <%= image_tag "logos/doorsateight_header_cropped.jpg" %>
   </div>
 </div>
-
+<div class="row">
+  <div class="description small-12 medium-8 medium-centered">
+    <div class="about">
+      Doors At Eight is Boston's premier music venue website. Started in July of 2016, it has quickly grown to more than <%= @review_count %> reviews and more are being added every day. You can trust Doors At Eight for insider info on all of Boston's most reputable venues.
+    </div>
+    <div class="owner">
+      Own a venue that isn't listed with us? <%= link_to 'Add it now.', new_venue_path %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="heading-2 columns small-12 medium-8 medium-centered">
+    <h2>Most recent reviews</h2>
+  </div>
+</div>
 <div id="review-carousel">
   <div class="review-list row">
     <div class="reviews columns small-12 medium-8 medium-centered">

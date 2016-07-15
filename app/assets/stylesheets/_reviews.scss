@@ -8,15 +8,17 @@
 
 .review-top {
   padding: 0;
+  margin-bottom: 0px;
 }
 
 .votes {
-  margin: 10px auto auto 15px;
+  margin: 0 auto auto 15px;
 }
 
 .heading {
-  background: rgba($header-blue, .8);
+  background: rgba($header-blue, .9);
   padding: 5px 10px;
+  margin-bottom: 15px;
   text-align: left;
 
   h1 {
@@ -49,12 +51,18 @@
 
 .rating {
   color: $yellow;
-  margin-top: 5px;
-  padding: 10px;
+  margin-top: 10px;
+  padding: 0;
+  text-align: center;
+
+  h3 {
+    font-size: 30px;
+    padding: auto;
+  }
 }
 
 .rating-body {
-  padding: 15px 20px 10px 5px;
+  padding: 5px 0;
   text-align: left;
 
   p {

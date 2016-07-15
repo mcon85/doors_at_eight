@@ -1,0 +1,23 @@
+.about {
+  font-size: 14px;
+  text-align: left;
+  font-style: italic;
+}
+
+.owner {
+  font-size: 12px;
+  margin: 10px 0 5px 0;
+}
+
+.heading-2 {
+  background: $yellow;
+  padding: 5px 10px;
+  margin: 10px auto 20px auto;
+  text-align: left;
+
+  h2 {
+    color: $white;
+    font-size: 16px;
+    margin: 0;
+  }
+}
