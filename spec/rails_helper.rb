@@ -79,3 +79,4 @@ RSpec.configure do |config|
 end
 
 PusherService.pusher = FakePusher
+TwitterService.client = FakeTwitter
