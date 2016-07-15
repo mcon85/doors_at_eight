@@ -1,6 +1,10 @@
 require 'rails_helper'
 
-feature 'Delete a venue' do
+feature 'Delete a venue', %{
+  As a user
+  I want to delete my own venue
+  So that I can remove my music venue from the site
+} do
   let(:venue) { FactoryGirl.create(:venue) }
   let(:user) { FactoryGirl.create(:user) }
   let(:t_is_accessible_string) { 'T is nearby' }

@@ -1,6 +1,10 @@
 require 'rails_helper'
 
-feature 'can make edits to user account', :devise do
+feature 'User makes changes to account', %{
+  As a user
+  I want to edit my account information
+  So that I can make updates to my account if my information changes
+}, :devise do
   scenario 'can change username' do
     user = FactoryGirl.create(:user)
     visit root_path

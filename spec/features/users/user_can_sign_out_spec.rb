@@ -1,6 +1,10 @@
 require 'rails_helper'
 
-feature 'can sign out of an account', :devise do
+feature 'User signs out', %{
+  As a user
+  I want to sign out
+  So that I can log out on a shared computer
+}, :devise do
   scenario 'can sign out' do
     user = FactoryGirl.create(:user)
     visit root_path

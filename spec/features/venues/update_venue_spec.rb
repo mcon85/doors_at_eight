@@ -1,6 +1,10 @@
 require 'rails_helper'
 
-feature 'Update a venue' do
+feature 'Edit a venue', %{
+  As a user
+  I want to edit my own venue
+  So that I can make updates if details about my venue change
+} do
   let(:venue) { FactoryGirl.create(:venue, t_accessible: false) }
   let(:admin) { FactoryGirl.create(:admin) }
 

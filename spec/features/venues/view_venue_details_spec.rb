@@ -1,6 +1,10 @@
 require 'rails_helper'
 
-feature 'View details of the venue' do
+feature 'View venue details', %{
+  As a user
+  I want to view details about a venue
+  So that I can get more information about a venue
+} do
   let!(:venue) { FactoryGirl.create(:venue) }
 
   scenario 'When a user clicks on the venue name see venue details.' do

@@ -1,6 +1,10 @@
 require 'rails_helper'
 
-feature 'Delete a user' do
+feature 'User deletes account', %{
+  As a user
+  I want to delete my account
+  So that I can remove my information from the website
+} do
   let(:user) { FactoryGirl.create(:user) }
 
   scenario 'User deletes their account' do

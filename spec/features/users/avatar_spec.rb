@@ -1,6 +1,10 @@
 require 'rails_helper'
 
-feature 'avatar' do
+feature 'Upload an avatar', %{
+  As a user
+  I want to upload an avatar
+  So that I can personalize my account
+} do
   let(:user) { FactoryGirl.attributes_for(:user) }
 
   scenario 'user uploads an avatar' do

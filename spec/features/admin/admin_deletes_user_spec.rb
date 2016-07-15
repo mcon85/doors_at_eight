@@ -1,6 +1,10 @@
 require 'rails_helper'
 
-feature 'Admin deletes a user' do
+feature 'Admin deletes a user', %{
+  As an administrator
+  I want to delete a user
+  So I can remove misbehaving users from the site
+} do
   scenario 'Admin deletes a user' do
     user = FactoryGirl.create(:user)
     admin = FactoryGirl.create(:user, role: "admin")

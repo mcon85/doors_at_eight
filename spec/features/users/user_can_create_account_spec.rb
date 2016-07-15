@@ -1,6 +1,10 @@
 require 'rails_helper'
 
-feature 'User can create new account' do
+feature 'User create an account', %{
+  As a user
+  I want to create an account
+  So that I can create venues and leave reviews
+} do
   scenario 'visits sign up page' do
     visit root_path
     expect(page).to have_content 'Sign Up'
