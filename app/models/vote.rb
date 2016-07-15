@@ -27,11 +27,11 @@ class Vote < ActiveRecord::Base
                       review_id: review_id,
                       vote_type: vote_type)
 
-      if vote.save
-        vote.message = success_message
-      else
-        vote.message = 'There was a problem saving that upvote.'
-      end
+      vote.message = if vote.save
+                      vote.message = success_message
+                    else
+                      vote.message = 'There was a problem saving that upvote.'
+                    end
     end
 
     if vote.destroyed?
