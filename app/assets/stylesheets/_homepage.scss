@@ -1,18 +1,18 @@
 .about {
   font-size: 14px;
-  text-align: left;
   font-style: italic;
+  text-align: left;
 }
 
 .owner {
   font-size: 12px;
-  margin: 10px 0 5px 0;
+  margin: 10px 0 5px;
 }
 
 .heading-2 {
   background: $yellow;
+  margin: 10px auto 20px;
   padding: 5px 10px;
-  margin: 10px auto 20px auto;
   text-align: left;
 
   h2 {
