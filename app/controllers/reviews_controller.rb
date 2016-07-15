@@ -86,7 +86,8 @@ class ReviewsController < ApplicationController
   def send_tweet(review, venue)
     unless review.body.empty?
       twitter = TwitterService.new
-      twitter.send_tweet("New Review for #{venue.name}: #{truncate(review.body)} #{venue_url(venue)}")
+      twitter.send_tweet("New Review for #{venue.name}: "\
+                         "#{truncate(review.body)} #{venue_url(venue)}")
     end
   end
 
