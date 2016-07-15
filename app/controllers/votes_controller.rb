@@ -6,7 +6,12 @@ class VotesController < ApplicationController
     vote = Vote.create_or_cancel(current_user.id,
                                  params[:review_id],
                                  params[:vote_type])
-    flash[:success] = vote.message
+    if vote
+      flash[:success] = vote.message
+    else
+      flash[:succes] = 'Your vote was removed'
+    end
+
     redirect_to venue_path(@review.venue)
   end
 end
